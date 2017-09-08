@@ -1,0 +1,16 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2017-08-30T14:01:05-04:00
+
+====== Notes ======
+Created Wednesday 30 August 2017
+
+Bret - Director of Network infrastructure services, implementing Banner 9. Cauing to increase Linux landscape. 5 servers to 30-35. Config management. 
+
+Wayne - tech. sourcing specialist at the college. Contracts, software compliance, softwarer negotiation
+
+Jake - sys. admin working with Linux boxes for Banner project
+
+
+
+Mention next week's tower demo by Kevin Holmes?

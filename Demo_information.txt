@@ -1,0 +1,28 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2017-08-30T09:20:35-04:00
+
+====== Demo information ======
+Created Wednesday 30 August 2017
+
+Ansible is an open-source command line tool. 
+Sometimes, this is not enough when you begin to scale out. Ansible Tower gives you the framework to run Ansible inside of your enterprise. 
+Ansible Tower gives you control over scheduled jobs, centrsalized your execution, grants role-based access control to give visibility into who did what. 
+
+First, let's see how Tower supports team collaboration. It provides complete role-based access control to explicitly permit users and teams to run only those playbooks for which they've been granted permission. Users can be created manually or imported via LDAP or Active Directory. 
+
+Templates allow you to store parameters that you can then pass on to a playbook and inventory. Playbooks run the same way every time.
+
+Jobs templates 
+	* Job Types
+		* Run = execute playbook
+		* Check does not execute playbook but checks syntax and reports problems
+Hosts can be grouped underneath inventories in any way that makes sense for your organization. 
+
+Once inventories are set up, you can use them in job templates. 
+
+Project is a logical collection of Tower playbooks that can reference and entire repo of playbooks from e.g. Github.
+
+Use the same template with different inventories. 
+
+Ansible Core does not necessarily preserve history of job runs or aggregate history of all job runs across your environment. 
