@@ -4,11 +4,11 @@
   gather_facts: false
   connection: local
 
- # vars:
-   # cli:
-     # username: maks
-     # password: cisco
-     # transport: cli
+  vars:
+    cli:
+      username: maks
+      password: cisco
+      transport: cli
 
   tasks:
     - name: Enable ospf
