@@ -1,0 +1,5 @@
+---
+  - name: Create vlan 10, 20, and 30
+    eos_vlan:
+      vlan_id: 10, 20, 30
+      state: present
