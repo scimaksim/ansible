@@ -14,4 +14,4 @@
         register: show_version
 
       - name: debug me
-debug: var=show_version
+        debug: var=show_version
