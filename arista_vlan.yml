@@ -1,5 +1,11 @@
 ---
-  - name: Create vlan 10, 20, and 30
+- name: Create vlan 10, 20, and 30
+  hosts: Arista1, Arista2
+  gather_facts: false
+  connection: local
+
+  tasks:
+    - name: Create the VLANs
     eos_vlan:
       vlan_id: 10, 20, 30
       state: present
