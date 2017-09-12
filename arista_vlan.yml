@@ -7,8 +7,6 @@
   tasks:
     - name: Create the VLANs
       eos_vlan:
-        vlan_id: 10
-        vlan_id: 20
-        vlan_id: 30
+        vlan_id: 10 20 30
         state: present
     
