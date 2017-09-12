@@ -5,9 +5,8 @@
   connection: local
 
   tasks:
-    - name: Create the VLANs
+    - name: Create VLAN 10
       eos_vlan:
-        aggregate:
-         - vlan_id: 10, 20, 30
-         - state: present
+        vlan_id: 10-30
+        state: present
     
