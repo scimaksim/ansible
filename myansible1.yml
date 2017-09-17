@@ -8,7 +8,6 @@
     cli:
       username: maks
       password: cisco
-      transport: cli
 
   tasks:
     - name: Enable ospf

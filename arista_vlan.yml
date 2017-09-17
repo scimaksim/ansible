@@ -5,7 +5,21 @@
   connection: local
 
   tasks:
+<<<<<<< HEAD
     - name: Create the VLANs
       eos_vlan:
         vlan_id: 10, 20, 30
+=======
+    - name: Create VLAN 10
+      eos_vlan:
+        vlan_id: 10
+        state: present
+    - name: Create VLAN 20
+      eos_vlan:
+        vlan_id: 20
+        state: present
+    - name: Create VLAN 30
+      eos_vlan:
+        vlan_id: 30
+>>>>>>> 4770ccb1921777eea8d4522abca93beb70fc7e50
         state: present
