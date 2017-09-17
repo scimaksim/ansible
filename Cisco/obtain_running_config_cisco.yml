@@ -1,5 +1,5 @@
 ---
-- name: Save Configurations (IOS)
+  - name: Save Configurations (IOS)
 
   #hosts: cisco
   #vars:
@@ -7,11 +7,11 @@
   #    host: "{{ host }}"
   #    username: "{{ username }}"
   #    password: "{{ password }}"
-  tasks:
-    - ios_command:
-        #provider: "{{ creds }}"
-        commands: show run
-      register: show_run
+    tasks:
+      - ios_command:
+          #provider: "{{ creds }}"
+          commands: show run
+        register: show_run
 
-    - debug:
-        msg: "{{ show_run }}"
+      - debug:
+          msg: "{{ show_run }}"
