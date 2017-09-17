@@ -1,5 +1,6 @@
 ---
   - name: Save Configurations (IOS)
+    hosts: cisco
 
     tasks:
       - ios_command:
