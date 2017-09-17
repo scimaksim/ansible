@@ -1,0 +1,5 @@
+{% for item in interfaces %}
+interface {{ item.name }}
+  description {{ item.description }}
+  no switchport
+{% endfor %}
