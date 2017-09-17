@@ -1,0 +1,10 @@
+---
+  name: check interface status
+  eos_command:
+    commands:
+      - show version | json
+      - show interfaces Ethernet1 status | json
+    waitfor:
+      - "result[1].interfaceStatus.Ethernet1.lineProtocolStatus eq up"
+      - "result[1].interfaceStatus.Ethernet1.linkStatus eq connected"
+    provider: "{{ cli }}"

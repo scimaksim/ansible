@@ -1,0 +1,22 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2017-09-17T18:02:50-04:00
+
+====== Networking ======
+Created Sunday 17 September 2017
+
+* Configuration automation
+	* Push configuration changes out to network elements
+* Test-driven networking
+	* It's not good enough to simply push a configuration into a device. One must be able to take ephemeral state information and apply it to configuration management. 
+	* Must be able to evaluate if device is transitioning to the steady operating state that we expect.
+	* Must be able to turn UP the interface, look at its various characteristics and make sure its steady before continung. We can look @ LLDP peers, route entries in route table, etc. 
+* Continuous compliance
+	* Once we understand what the ephemeral state is, we can go back and test configuration changes to make sure they remain over the course of time. 
+
+**Core Network Modules**
+* Command modules
+	* Extract data out of a network device
+* Config modules
+* Template modules
+
