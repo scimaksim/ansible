@@ -18,8 +18,8 @@
           msg: "{{ show_run.stdout[0] }}"
           
       - name: Create target directory
-          file: path=~/CFGS state=directory mode=0777
+          file: path=/CFGS state=directory mode=0777
       
       - copy:
           content: "{{ show_run.stdout[0] }}"
-          dest: "~/CFGS/{{ inventory_hostname }}.txt"
+          dest: "CFGS/{{ inventory_hostname }}.txt"
