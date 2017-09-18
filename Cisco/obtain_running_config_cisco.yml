@@ -18,10 +18,10 @@
           msg: "{{ show_run.stdout[0] }}"
           
       - file: 
-          path: /CFGS 
+          path: /home/maks/CFGS 
           state: directory 
           mode: 0777
       
       - copy:
           content: "{{ show_run.stdout[0] }}"
-          dest: "CFGS/{{ inventory_hostname }}.txt"
+          dest: "/home/maks/CFGS/{{ inventory_hostname }}.txt"
