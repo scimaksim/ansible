@@ -1,6 +1,7 @@
 ---
   - name: Save Configurations (IOS)
     hosts: Routers
+    connection: local
     
     vars:
       creds:
