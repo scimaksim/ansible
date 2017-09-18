@@ -22,6 +22,6 @@
       #    state: directory 
       #    mode: 0777
       
-      - fetch:
+      - copy:
           content: "{{ show_run.stdout[0] }}"
           dest: "/home/maks/CFGS/{{ inventory_hostname }}.txt"
