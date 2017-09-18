@@ -1,6 +1,10 @@
 ---
   - name: Save Configurations (IOS)
     hosts: Routers
+    
+    vars:
+      username: maks
+      password: cisco
 
     tasks:
       - ios_command:
