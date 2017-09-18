@@ -1,6 +1,6 @@
 ---
   - name: Save Configurations (IOS)
-    hosts: cisco
+    hosts: Routers
 
     tasks:
       - ios_command:
