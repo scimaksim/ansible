@@ -16,6 +16,7 @@
 
       - debug:
           msg: "{{ show_run.stdout[0] }}"
-       - copy:
+      
+      - copy:
           content: "{{ show_run.stdout[0] }}"
           dest: "CFGS/{{ inventory_hostname }}.txt"
