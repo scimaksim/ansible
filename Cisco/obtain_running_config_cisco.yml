@@ -3,11 +3,13 @@
     hosts: Routers
     
     vars:
-      username: maks
-      password: cisco
+      creds:
+        username: maks
+        password: cisco
 
     tasks:
       - ios_command:
+          provider: "{{ creds }}"
           commands: show run
         register: show_run
 
