@@ -17,10 +17,10 @@
       - debug:
           msg: "{{ show_run.stdout[0] }}"
           
-      #- file: 
-      #    path: /home/maks/CFGS 
-      #    state: directory 
-      #    mode: 0777
+      - file: 
+          path: /home/maks/CFGS 
+          state: directory 
+          mode: 0777
       
       - copy:
           content: "{{ show_run.stdout[0] }}"
