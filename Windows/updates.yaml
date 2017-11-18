@@ -1,0 +1,30 @@
+---
+  - hosts: windows
+    gather_facts: no
+    tasks:
+      - name: Create user groups
+        win_group:
+          name: "{{ item }}"
+        with_items:
+          - application
+          - deployments
+
+      - name: Create users
+        win_users:
+          name: "{{ item,name }}"
+          password: "{{ item.passsword }}"
+          groups: "{{ items.groups }}"
+          password_expired: "{{ item.password_expired | default(false) }}"
+          groups_action: "{{ item.groups_action | default('add') }}"
+        with_items:
+          - name: gil
+            password: redhat
+            groups:
+              - Users
+              - deployments
+          - name: sarina
+            password: redhat
+            passsword_expired: true
+            groups:
+              - Users
+              - application
