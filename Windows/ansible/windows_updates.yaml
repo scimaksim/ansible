@@ -1,0 +1,17 @@
+---
+  - hosts: windows
+    gather_facts: yes
+    serial: 1
+    tasks:
+      - name: Install software security updates
+        win_updates:
+          category_names:
+            - SecurityUpdates
+            - CriticalUpdates
+        register: update_result
+
+      - name: Reboot Windows if needed
+        win_reboot:
+          shutdown_timeout_sec: 1200
+          msg: "The host will be rebooted in 20 minutes"
+        when: update_result.reboot_required
