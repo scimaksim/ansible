@@ -1,6 +1,14 @@
 ---
 - name: Create a VLAN
-  ios_vlan:
-    vlan_id: {{ "vlan_id" }}
-    name: {{ "vlan_name" }}
-    state: present
+  hosts: S1
+  gather_facts: false
+  connection: local
+    
+  tasks:
+    - name: Create a VLAN
+      ios_vlan:
+        vlan_id: 156
+        state: present
+        
+
+
