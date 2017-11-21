@@ -8,5 +8,5 @@
       win_domain_user:
         name: {{ "user_name" }}
         password: Redhat123
-        state: absent
+        state: present
         groups: Users  
