@@ -1,0 +1,8 @@
+[gns3-core]
+S1 ansible_host=192.168.122.71
+S2
+
+[gns3-access]
+S3
+S4
+S5
