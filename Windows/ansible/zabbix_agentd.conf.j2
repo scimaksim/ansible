@@ -1,0 +1,329 @@
+# {{ ansible_managed }}
+# This is a configuration file for Zabbix agent service (Windows)
+# To get more information about Zabbix, visit http://www.zabbix.com
+
+############ GENERAL PARAMETERS #################
+
+### Option: LogType
+#	Specifies where log messages are written to:
+#		system  - Windows event log
+#		file    - file specified with LogFile parameter
+#		console - standard output
+#
+# Mandatory: no
+# Default:
+
+LogType=system
+
+### Option: LogFile
+#	Log file name for LogType 'file' parameter.
+#
+# Mandatory: no
+# Default:
+# LogFile=
+
+LogFile=zabbix
+
+### Option: LogFileSize
+#	Maximum size of log file in MB.
+#	0 - disable automatic log rotation.
+#
+# Mandatory: no
+# Range: 0-1024
+# Default:
+
+LogFile=1042
+
+### Option: DebugLevel
+#	Specifies debug level:
+#	0 - basic information about starting and stopping of Zabbix processes
+#	1 - critical information
+#	2 - error information
+#	3 - warnings
+#	4 - for debugging (produces lots of information)
+#	5 - extended debugging (produces even more information)
+#
+# Mandatory: no
+# Range: 0-5
+# Default:
+
+DebugLevel=0
+
+### Option: SourceIP
+#	Source IP address for outgoing connections.
+#
+# Mandatory: no
+# Default:
+# SourceIP=
+
+{% if zabbix_agent_SourceIP %}
+SourceIP={{ zabbix_agent_SourceIP }}
+{% endif %}
+
+### Option: EnableRemoteCommands
+#	Whether remote commands from Zabbix server are allowed.
+#	0 - not allowed
+#	1 - allowed
+#
+# Mandatory: no
+# Default:
+# EnableRemoteCommands=0
+
+EnableRemoteCommands={{ zabbix_agent_EnableRemoteCommands }}
+
+### Option: LogRemoteCommands
+#	Enable logging of executed shell commands as warnings.
+#	0 - disabled
+#	1 - enabled
+#
+# Mandatory: no
+# Default:
+# LogRemoteCommands=0
+
+LogRemoteCommands={{ zabbix_agent_LogRemoteCommands }}
+
+##### Passive checks related
+
+### Option: Server
+#	List of comma delimited IP addresses (or hostnames) of Zabbix servers.
+#	Incoming connections will be accepted only from the hosts listed here.
+#	If IPv6 support is enabled then '127.0.0.1', '::127.0.0.1', '::ffff:127.0.0.1' are treated equally.
+#
+# Mandatory: no
+# Default:
+Server=192.168.122.26
+
+Server={{ zabbix_agent_Server | join(',') }}
+
+### Option: ListenPort
+#	Agent will listen on this port for connections from the server.
+#
+# Mandatory: no
+# Range: 1024-32767
+# Default:
+# ListenPort=10050
+
+ListenPort={{ zabbix_agent_ListenPort }}
+
+### Option: ListenIP
+#       List of comma delimited IP addresses that the agent should listen on.
+#       First IP address is sent to Zabbix server if connecting to it to retrieve list of active checks.
+#
+# Mandatory: no
+# Default:
+# ListenIP=0.0.0.0
+
+ListenIP={{ zabbix_agent_ListenIP | join(',') }}
+
+### Option: StartAgents
+#	Number of pre-forked instances of zabbix_agentd that process passive checks.
+#	If set to 0, disables passive checks and the agent will not listen on any TCP port.
+#
+# Mandatory: no
+# Range: 0-100
+# Default:
+# StartAgents=3
+
+StartAgents={{ zabbix_agent_StartAgents }}
+
+##### Active checks related
+
+### Option: ServerActive
+#	List of comma delimited IP:port (or hostname:port) pairs of Zabbix servers for active checks.
+#	If port is not specified, default port is used.
+#	IPv6 addresses must be enclosed in square brackets if port for that host is specified.
+#	If port is not specified, square brackets for IPv6 addresses are optional.
+#	If this parameter is not specified, active checks are disabled.
+#	Example: ServerActive=127.0.0.1:20051,zabbix.domain,[::1]:30051,::1,[12fc::1]
+#
+# Mandatory: no
+# Default:
+# ServerActive=
+
+ServerActive={{ zabbix_agent_ServerActive | join(',') }}
+
+### Option: Hostname
+#	Unique, case sensitive hostname.
+#	Required for active checks and must match hostname as configured on the server.
+#	Value is acquired from HostnameItem if undefined.
+#
+# Mandatory: no
+# Default:
+# Hostname=
+
+Hostname={{ zabbix_agent_Hostname }}
+
+### Option: HostnameItem
+#	Item used for generating Hostname if it is undefined. Ignored if Hostname is defined.
+#	Does not support UserParameters or aliases.
+#
+# Mandatory: no
+# Default:
+# HostnameItem=system.hostname
+
+Hostname={{ zabbix_agent_Hostname }}
+
+### Option: HostMetadata
+#	Optional parameter that defines host metadata.
+#	Host metadata is used at host auto-registration process.
+#	An agent will issue an error and not start if the value is over limit of 255 characters.
+#	If not defined, value will be acquired from HostMetadataItem.
+#
+# Mandatory: no
+# Range: 0-255 characters
+# Default:
+# HostMetadata=
+
+{% if zabbix_agent_HostMetadata %}
+HostMetadata={{ zabbix_agent_HostMetadata }}
+{% endif %}
+
+### Option: HostMetadataItem
+#	Optional parameter that defines an item used for getting host metadata.
+#	Host metadata is used at host auto-registration process.
+#	During an auto-registration request an agent will log a warning message if
+#	the value returned by specified item is over limit of 255 characters.
+#	This option is only used when HostMetadata is not defined.
+#
+# Mandatory: no
+# Default:
+# HostMetadataItem=
+
+{% if zabbix_agent_HostMetadataItem %}
+HostMetadataItem={{ zabbix_agent_HostMetadataItem }}
+{% endif %}
+
+### Option: RefreshActiveChecks
+#	How often list of active checks is refreshed, in seconds.
+#
+# Mandatory: no
+# Range: 60-3600
+# Default:
+# RefreshActiveChecks=120
+
+RefreshActiveChecks={{ zabbix_agent_RefreshActiveChecks }}
+
+### Option: BufferSend
+#	Do not keep data longer than N seconds in buffer.
+#
+# Mandatory: no
+# Range: 1-3600
+# Default:
+# BufferSend=5
+
+BufferSend={{ zabbix_agent_BufferSend }}
+
+### Option: BufferSize
+#	Maximum number of values in a memory buffer. The agent will send
+#	all collected data to Zabbix server or Proxy if the buffer is full.
+#
+# Mandatory: no
+# Range: 2-65535
+# Default:
+# BufferSize=100
+
+BufferSize={{ zabbix_agent_BufferSize }}
+
+### Option: MaxLinesPerSecond
+#	Maximum number of new lines the agent will send per second to Zabbix Server
+#	or Proxy processing 'log', 'logrt' and 'eventlog' active checks.
+#	The provided value will be overridden by the parameter 'maxlines',
+#	provided in 'log', 'logrt' or 'eventlog' item keys.
+#
+# Mandatory: no
+# Range: 1-1000
+# Default:
+# MaxLinesPerSecond=20
+
+MaxLinesPerSecond={{ zabbix_agent_MaxLinesPerSecond }}
+
+############ ADVANCED PARAMETERS #################
+
+### Option: Alias
+#	Sets an alias for an item key. It can be used to substitute long and complex item key with a smaller and simpler one.
+#	Multiple Alias parameters may be present. Multiple parameters with the same Alias key are not allowed.
+#	Different Alias keys may reference the same item key.
+#	For example, to retrieve paging file usage in percents from the server:
+#	Alias=pg_usage:perf_counter[\Paging File(_Total)\% Usage]
+#	Now shorthand key pg_usage may be used to retrieve data.
+#	Aliases can be used in HostMetadataItem but not in HostnameItem or PerfCounter parameters.
+#
+# Mandatory: no
+# Range:
+# Default:
+
+{% for alias in zabbix_agent_Alias %}
+Alias={{ alias }}
+{% endfor %}
+
+### Option: Timeout
+#	Spend no more than Timeout seconds on processing.
+#
+# Mandatory: no
+# Range: 1-30
+# Default:
+# Timeout=3
+
+Timeout={{ zabbix_agent_Timeout }}
+
+### Option: PerfCounter
+#	Syntax: <parameter_name>,"<perf_counter_path>",<period>
+#	Defines new parameter <parameter_name> which is an average value for system performance counter <perf_counter_path> for the specified time period <period> (in seconds).
+#	For example, if you wish to receive average number of processor interrupts per second for last minute, you can define new parameter "interrupts" as following:
+#	PerfCounter = interrupts,"\Processor(0)\Interrupts/sec",60
+#	Please note double quotes around performance counter path.
+#	Samples for calculating average value will be taken every second.
+#	You may run "typeperf -qx" to get list of all performance counters available in Windows.
+#
+# Mandatory: no
+# Range:
+# Default:
+
+{% for PerfCounter in zabbix_agent_PerfCounter %}
+PerfCounter={{ PerfCounter }}
+{% endfor %}
+
+### Option: Include
+#	You may include individual files in the configuration file.
+#
+# Mandatory: no
+# Default:
+# Include=
+
+# Include=c:\zabbix\zabbix_agentd.userparams.conf
+# Include=c:\zabbix\zabbix_agentd.conf.d\
+# Include=c:\zabbix\zabbix_agentd.conf.d\*.conf
+
+{% for include in zabbix_agent_Include_Windows %}
+Include={{ include }}
+{% endfor %}
+
+####### USER-DEFINED MONITORED PARAMETERS #######
+
+### Option: UnsafeUserParameters
+#	Allow all characters to be passed in arguments to user-defined parameters.
+#	The following characters are not allowed:
+#	\ ' " ` * ? [ ] { } ~ $ ! & ; ( ) < > | # @
+#	Additionally, newline characters are not allowed.
+#	0 - do not allow
+#	1 - allow
+#
+# Mandatory: no
+# Range: 0-1
+# Default:
+# UnsafeUserParameters=0
+
+UnsafeUserParameters={{ zabbix_agent_UnsafeUserParameters }}
+
+### Option: UserParameter
+#	User-defined parameter to monitor. There can be several user-defined parameters.
+#	Format: UserParameter=<key>,<shell command>
+#
+# Mandatory: no
+# Default:
+# UserParameter=
+
+{% for parameter in zabbix_agent_UserParameter_windows %}
+UserParameter={{ parameter }}
+{% endfor %}
+

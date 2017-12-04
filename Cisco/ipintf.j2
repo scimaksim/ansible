@@ -1,0 +1,4 @@
+{% for item in interfaces %}
+interface {{ item.name }}
+  ip address {{ item.address }}
+{% endfor %}

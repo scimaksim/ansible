@@ -1,0 +1,25 @@
+---
+- hosts: windows
+  gather_facts: yes
+  tasks: 
+    - name: Install Zabbix-agent
+      win_chocolatey:
+        name: zabbix-agent
+
+    - name: Configure Zabbix-agent
+      win_template: 
+        src: zabbix_agentd.conf.j2
+        dest: "C:'\'ProgramData'\'zabbix'\'zabbix_agentd.conf"
+      notify: zabbix-agent restart
+
+    - name: Zabbix-agent start
+      win_service:
+        name: Zabbix Agent
+        state: started
+
+  handlers: 
+    - name: zabbix-agent restart
+      win_service:
+        name: Zabbix Agent
+        state: restarted
+      

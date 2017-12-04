@@ -1,0 +1,9 @@
+[windows]
+server2016.MLAB.COM
+
+[windows:vars]
+ansible_user=admin@MLAB.COM
+ansible_password=Redhat123
+ansible_port=5986
+ansible_connection=winrm
+ansible_winrm_server_cert_validation=ignore

@@ -1,0 +1,17 @@
+---
+  vars:
+    interfaces:
+      - { name: lo0, address: 1.1.1.1/32 }
+      - { name: ge-0/0/0, address: 172.16.1.254/24 }
+      - { name: ge-0/0/1, address: 172.16.2.254/24 }
+
+    tasks:
+      - name: configure junos interfaces
+        junos_config:
+          lines:
+            - 'set system host-name {{ inventory_hostname }}'
+            - 'set interfaces {{ item.name }} description "configured by Ansible"'
+            - 'set interfaces {{ item.name }} unit 0 family inet address
+                {{ item.address }}'
+          provider: "{{ cli }}"
+        with_items: interfaces
