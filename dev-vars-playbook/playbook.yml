@@ -1,0 +1,48 @@
+---
+- name: Install Apache and start the service
+  hosts: webserver
+  vars:
+    web_pkg: httpd
+    firewall_pkg: firewalld
+    web_service: httpd
+    firewall_service: firewalld
+    python_pkg: python-httplib2
+    rule: http
+  tasks:
+    - name: Install the required packages
+      yum:
+        name: 
+          - "{{ web_pkg }}"
+          - "{{ firewall_pkg }}"
+          - "{{ python_pkg }}"
+        state: latest
+    - name: Start and enable the {{ firewall_service }} service
+      service:
+        name: "{{ firewall_service }}"
+        enabled: true
+        state: started
+    - name: Start and enable the {{ web_service }} service
+      service:
+        name: "{{ web_service }}"
+        enabled: true
+        state: started
+    - name: Create web content to be served
+      copy:
+        content: "Example web content"
+        dest: /var/www/html/index.html
+    - name: Open the port for {{ rule}}
+      firewalld:
+        service: "{{ rule }}"
+        permanent: true
+        immediate: true
+        state: enabled
+
+- name: Verify the Apache service
+  hosts: localhost
+  tasks:
+    - name: Ensure the webserver is reachable
+      uri:
+        url: http://servera.lab.example.com
+        status_code: 200 
+ 
+    

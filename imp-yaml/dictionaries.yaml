@@ -1,0 +1,8 @@
+---
+- en2es:
+    number: numero
+    word: palabra
+
+- es2en: 
+    perro: dog
+    gato: cat
