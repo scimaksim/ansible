@@ -22,18 +22,21 @@
 # Registers:
 
 # File marks:
-'0  6  8  ~/dev-vars-facts/setup_facts.yaml
-'1  16  31  ~/dev-vars-facts/setup_facts.yaml
-'2  4  12  ~/dev-vars-facts/custom.fact
-'3  46  23  ~/dev-vars-playbook/playbook.yml
-'4  63  7  ~/imp-lab/internet.yml
-'5  13  26  ~/imp-lab/internet.yml
-'6  55  21  ~/imp-lab/internet.yml
-'7  46  0  ~/imp-playbook/intranet.yaml
-'8  5  10  ~/imp-yaml/numbers.yaml
-'9  8  12  ~/imp-yaml/dictionaries.yaml
+'0  13  24  ~/dev-flowcontrol/configure_database.yml
+'1  30  0  ~/dev-flowcontrol/configure_database.yml
+'2  6  8  ~/dev-vars-facts/setup_facts.yaml
+'3  16  31  ~/dev-vars-facts/setup_facts.yaml
+'4  4  12  ~/dev-vars-facts/custom.fact
+'5  46  23  ~/dev-vars-playbook/playbook.yml
+'6  63  7  ~/imp-lab/internet.yml
+'7  13  26  ~/imp-lab/internet.yml
+'8  55  21  ~/imp-lab/internet.yml
+'9  46  0  ~/imp-playbook/intranet.yaml
 
 # Jumplist (newest first):
+-'  13  24  ~/dev-flowcontrol/configure_database.yml
+-'  1  0  ~/dev-flowcontrol/configure_database.yml
+-'  30  0  ~/dev-flowcontrol/configure_database.yml
 -'  6  8  ~/dev-vars-facts/setup_facts.yaml
 -'  16  8  ~/dev-vars-facts/setup_facts.yaml
 -'  1  0  ~/dev-vars-facts/setup_facts.yaml
@@ -129,11 +132,24 @@
 -'  1  0  ~/.bash_history
 -'  2  22  ~/dep-install/inventory
 -'  1  0  ~/dep-install/inventory
--'  1  0  ~/.bash_history
--'  1  0  ~/.bash_history
--'  7  12  ~/dep-manage/inventory
 
 # History of marks within files (newest to oldest):
+
+> ~/dev-flowcontrol/configure_database.yml
+	"	13	24
+	^	13	25
+	.	13	25
+	+	41	32
+	+	36	53
+	+	29	40
+	+	8	0
+	+	7	1
+	+	18	1
+	+	21	16
+	+	3	70
+	+	16	80
+	+	14	20
+	+	13	25
 
 > ~/dev-vars-facts/setup_facts.yaml
 	"	6	8
