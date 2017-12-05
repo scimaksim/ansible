@@ -1,0 +1,17 @@
+---
+- hosts: R1
+  connection: local
+  vars:
+    cli:
+      username: maks
+      password: cisco
+
+  tasks:
+      - name: Run show version
+        ios_command:
+          commands: "show version"
+          provider: "{{ cli }}"
+        register: show_version
+
+      - name: debug me
+        debug: var=show_version

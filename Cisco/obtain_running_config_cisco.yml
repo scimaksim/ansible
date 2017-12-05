@@ -1,0 +1,27 @@
+---
+  - name: Save Configurations (IOS)
+    hosts: Routers
+    connection: local
+    
+    vars:
+      creds:
+        username: maks
+        password: cisco
+
+    tasks:
+      - ios_command:
+          provider: "{{ creds }}"
+          commands: show run
+        register: show_run
+
+      - debug:
+          msg: "{{ show_run.stdout[0] }}"
+          
+      - file: 
+          path: /home/maks/CFGS 
+          state: directory 
+          mode: 0777
+      
+      - copy:
+          content: "{{ show_run.stdout[0] }}"
+          dest: "~/CFGS/{{ inventory_hostname }}.txt"

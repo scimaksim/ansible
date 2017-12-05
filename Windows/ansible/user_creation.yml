@@ -1,0 +1,12 @@
+---
+- name: Create user
+  hosts: windows
+  gather_facts: false
+  
+  tasks:
+    - name: Create a user name maks
+      win_domain_user:
+        name: "{{ user_name }}"
+        password: Redhat123
+        state: present
+        groups: Users  

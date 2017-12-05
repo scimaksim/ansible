@@ -1,0 +1,17 @@
+---
+
+- name: Create backup of running config
+  hosts: all
+  gather_facts: false
+  connection: local
+
+  vars:
+    cli:
+      username: david
+      password: cisco
+      
+  tasks:
+    - name: Store running config
+      ios_config:
+        provider: "{{ cli }}"
+        backup: yes

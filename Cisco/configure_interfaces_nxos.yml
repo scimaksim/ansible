@@ -1,0 +1,14 @@
+---
+  - name: configure nxos devices
+    hosts: nxos
+
+    tasks:
+      - name: configure interfaces
+        nxos_template:
+          src: interfaces.j2
+          provider: "{{ cli }}"
+
+      - name: configure ip interfaces
+        nxos_template:
+          src: ipintf.j2
+          provider: "{{ cli }}"
