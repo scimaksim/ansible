@@ -20,20 +20,35 @@
 # Input Line History (newest to oldest):
 
 # Registers:
+""1	LINE	0
+	
+"2	LINE	0
+	        password: redhat
+"3	LINE	0
+	        name: root
+"4	LINE	0
+	      mysql_user: 
+"5	LINE	0
+	    - name: Set the MySQL password
 
 # File marks:
-'0  8  13  ~/dev-flowcontrol/configure_database.yml
-'1  30  6  ~/dev-flowcontrol/playbook.yml
-'2  1  0  ~/dev-flowcontrol/playbook.
-'3  1  0  ~/dev-flowcontrol/configure_database.yml
-'4  12  24  ~/dev-flowcontrol/configure_database.yml
-'5  29  0  ~/dev-flowcontrol/configure_database.yml
-'6  6  8  ~/dev-vars-facts/setup_facts.yaml
-'7  16  31  ~/dev-vars-facts/setup_facts.yaml
-'8  4  12  ~/dev-vars-facts/custom.fact
-'9  46  23  ~/dev-vars-playbook/playbook.yml
+'0  31  2  ~/dev-handlers/configure_db.yml
+'1  1  0  ~/dev-handlers/configure_db.
+'2  43  23  ~/dev-handlers/configure_db.yml
+'3  9  84  ~/dev-handlers/configure_db.yml
+'4  8  13  ~/dev-flowcontrol/configure_database.yml
+'5  30  6  ~/dev-flowcontrol/playbook.yml
+'6  1  0  ~/dev-flowcontrol/playbook.
+'7  1  0  ~/dev-flowcontrol/configure_database.yml
+'8  12  24  ~/dev-flowcontrol/configure_database.yml
+'9  29  0  ~/dev-flowcontrol/configure_database.yml
 
 # Jumplist (newest first):
+-'  31  2  ~/dev-handlers/configure_db.yml
+-'  1  0  ~/dev-handlers/configure_db.
+-'  43  8  ~/dev-handlers/configure_db.yml
+-'  9  4  ~/dev-handlers/configure_db.yml
+-'  1  0  ~/dev-handlers/configure_db.yml
 -'  8  13  ~/dev-flowcontrol/configure_database.yml
 -'  1  0  ~/dev-flowcontrol/configure_database.yml
 -'  30  6  ~/dev-flowcontrol/playbook.yml
@@ -126,14 +141,32 @@
 -'  1  0  ~/dep-install/inventory
 -'  1  0  ~/.bash_history
 -'  1  0  ~/.bash_history
--'  2  22  ~/dep-install/inventory
--'  1  0  ~/dep-install/inventory
--'  1  0  ~/.bash_history
--'  1  0  ~/.bash_history
--'  2  22  ~/dep-install/inventory
--'  1  0  ~/dep-install/inventory
 
 # History of marks within files (newest to oldest):
+
+> ~/dev-handlers/configure_db.yml
+	"	31	2
+	.	31	0
+	+	9	24
+	+	4	62
+	+	7	26
+	+	8	104
+	+	9	85
+	+	29	21
+	+	28	9
+	+	32	3
+	+	11	1
+	+	31	1
+	+	39	23
+	+	38	31
+	+	43	23
+	+	31	24
+	+	31	24
+	+	31	0
+	+	31	0
+
+> ~/dev-handlers/configure_db.
+	"	1	0
 
 > ~/dev-flowcontrol/configure_database.yml
 	"	8	13
