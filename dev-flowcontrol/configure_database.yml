@@ -1,4 +1,3 @@
-----
 # Task file to install the extra packages, update /etc/my.cnf from
 # a copy stored on the website, and start mariadb on the managed hosts.
 - yum:
@@ -6,7 +5,7 @@
  
 - get_url:
     url: "http://materials.example.com/task_control/my.cnf"
-    dest: "{{ _configure_database_path }}"
+    dest: "{{ configure_database_path }}"
     owner: mysql
     group: mysql
     mode: 0644

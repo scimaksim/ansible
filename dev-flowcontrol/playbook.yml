@@ -19,3 +19,12 @@
       yum:
         name: "{{ db_package }}"
       when: db_package is defined
+
+    - name: Configure the database software
+      include: configure_database.yml
+      vars:
+        extra_packages:
+          - mariadb-bench
+          - mariadb-libs
+          - mariadb-test
+      when: configure_database_path is defined

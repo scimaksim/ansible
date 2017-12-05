@@ -22,21 +22,25 @@
 # Registers:
 
 # File marks:
-'0  13  24  ~/dev-flowcontrol/configure_database.yml
-'1  30  0  ~/dev-flowcontrol/configure_database.yml
-'2  6  8  ~/dev-vars-facts/setup_facts.yaml
-'3  16  31  ~/dev-vars-facts/setup_facts.yaml
-'4  4  12  ~/dev-vars-facts/custom.fact
-'5  46  23  ~/dev-vars-playbook/playbook.yml
-'6  63  7  ~/imp-lab/internet.yml
-'7  13  26  ~/imp-lab/internet.yml
-'8  55  21  ~/imp-lab/internet.yml
-'9  46  0  ~/imp-playbook/intranet.yaml
+'0  8  13  ~/dev-flowcontrol/configure_database.yml
+'1  30  6  ~/dev-flowcontrol/playbook.yml
+'2  1  0  ~/dev-flowcontrol/playbook.
+'3  1  0  ~/dev-flowcontrol/configure_database.yml
+'4  12  24  ~/dev-flowcontrol/configure_database.yml
+'5  29  0  ~/dev-flowcontrol/configure_database.yml
+'6  6  8  ~/dev-vars-facts/setup_facts.yaml
+'7  16  31  ~/dev-vars-facts/setup_facts.yaml
+'8  4  12  ~/dev-vars-facts/custom.fact
+'9  46  23  ~/dev-vars-playbook/playbook.yml
 
 # Jumplist (newest first):
--'  13  24  ~/dev-flowcontrol/configure_database.yml
+-'  8  13  ~/dev-flowcontrol/configure_database.yml
 -'  1  0  ~/dev-flowcontrol/configure_database.yml
--'  30  0  ~/dev-flowcontrol/configure_database.yml
+-'  30  6  ~/dev-flowcontrol/playbook.yml
+-'  1  0  ~/dev-flowcontrol/playbook.
+-'  12  4  ~/dev-flowcontrol/configure_database.yml
+-'  1  0  ~/dev-flowcontrol/playbook.yml
+-'  29  0  ~/dev-flowcontrol/configure_database.yml
 -'  6  8  ~/dev-vars-facts/setup_facts.yaml
 -'  16  8  ~/dev-vars-facts/setup_facts.yaml
 -'  1  0  ~/dev-vars-facts/setup_facts.yaml
@@ -128,28 +132,37 @@
 -'  1  0  ~/.bash_history
 -'  2  22  ~/dep-install/inventory
 -'  1  0  ~/dep-install/inventory
--'  1  0  ~/.bash_history
--'  1  0  ~/.bash_history
--'  2  22  ~/dep-install/inventory
--'  1  0  ~/dep-install/inventory
 
 # History of marks within files (newest to oldest):
 
 > ~/dev-flowcontrol/configure_database.yml
-	"	13	24
-	^	13	25
-	.	13	25
-	+	41	32
-	+	36	53
-	+	29	40
-	+	8	0
-	+	7	1
-	+	18	1
-	+	21	16
-	+	3	70
-	+	16	80
-	+	14	20
-	+	13	25
+	"	8	13
+	^	8	14
+	.	8	14
+	+	40	32
+	+	35	53
+	+	28	40
+	+	7	0
+	+	6	1
+	+	17	1
+	+	20	16
+	+	2	70
+	+	15	80
+	+	13	20
+	+	12	25
+	+	4	3
+	+	1	0
+	+	2	0
+	+	8	14
+
+> ~/dev-flowcontrol/playbook.yml
+	"	30	6
+	^	30	46
+	.	30	45
+	+	30	45
+
+> ~/dev-flowcontrol/playbook.
+	"	1	0
 
 > ~/dev-vars-facts/setup_facts.yaml
 	"	6	8
