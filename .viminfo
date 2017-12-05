@@ -8,8 +8,8 @@
 # hlsearch on (H) or off (h):
 ~H
 # Command Line History (newest to oldest):
-:wq
 :q
+:wq
 
 # Search String History (newest to oldest):
 
@@ -32,18 +32,22 @@
 	    - name: Set the MySQL password
 
 # File marks:
-'0  31  2  ~/dev-handlers/configure_db.yml
-'1  1  0  ~/dev-handlers/configure_db.
-'2  43  23  ~/dev-handlers/configure_db.yml
-'3  9  84  ~/dev-handlers/configure_db.yml
-'4  8  13  ~/dev-flowcontrol/configure_database.yml
-'5  30  6  ~/dev-flowcontrol/playbook.yml
-'6  1  0  ~/dev-flowcontrol/playbook.
-'7  1  0  ~/dev-flowcontrol/configure_database.yml
-'8  12  24  ~/dev-flowcontrol/configure_database.yml
-'9  29  0  ~/dev-flowcontrol/configure_database.yml
+'0  27  4  ~/dev-tags/configure_mail.yml
+'1  21  23  ~/dev-tags/playbook.yml
+'2  31  2  ~/dev-handlers/configure_db.yml
+'3  1  0  ~/dev-handlers/configure_db.
+'4  43  23  ~/dev-handlers/configure_db.yml
+'5  9  84  ~/dev-handlers/configure_db.yml
+'6  8  13  ~/dev-flowcontrol/configure_database.yml
+'7  30  6  ~/dev-flowcontrol/playbook.yml
+'8  1  0  ~/dev-flowcontrol/playbook.
+'9  1  0  ~/dev-flowcontrol/configure_database.yml
 
 # Jumplist (newest first):
+-'  27  4  ~/dev-tags/configure_mail.yml
+-'  21  23  ~/dev-tags/playbook.yml
+-'  1  0  ~/dev-tags/playbook.yml
+-'  1  0  ~/dev-tags/configure_mail.yml
 -'  31  2  ~/dev-handlers/configure_db.yml
 -'  1  0  ~/dev-handlers/configure_db.
 -'  43  8  ~/dev-handlers/configure_db.yml
@@ -137,12 +141,20 @@
 -'  1  0  ~/dep-install/inventory
 -'  1  0  ~/.bash_history
 -'  1  0  ~/.bash_history
--'  2  22  ~/dep-install/inventory
--'  1  0  ~/dep-install/inventory
--'  1  0  ~/.bash_history
--'  1  0  ~/.bash_history
 
 # History of marks within files (newest to oldest):
+
+> ~/dev-tags/configure_mail.yml
+	"	27	4
+	^	27	21
+	.	27	20
+	+	27	20
+
+> ~/dev-tags/playbook.yml
+	"	21	23
+	^	21	24
+	.	21	23
+	+	21	23
 
 > ~/dev-handlers/configure_db.yml
 	"	31	2
@@ -294,12 +306,3 @@
 	+	9	10
 	+	4	10
 	+	7	13
-
-> ~/dep-install/inventory
-	"	2	22
-	^	2	23
-	.	2	22
-	+	2	22
-
-> ~/.bash_history
-	"	1	0
