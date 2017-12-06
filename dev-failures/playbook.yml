@@ -1,0 +1,28 @@
+---
+- hosts: databases
+  vars: 
+    web_package: http
+    db_package: mariadb-server
+    db_service: mariadb
+
+  tasks:
+    - name: Check {{ web_package }} installation status
+      command: yum list installed "{{ web_package }}"
+      ignore_errors: yes
+      register: command_result
+
+    - name: Install {{ web_package }} package
+      yum:
+        name: "{{ web_package }}"
+        state: latest
+      ignore_errors: yes
+
+    - name: Debug
+      debug:
+        var: command_result
+
+    - name: Install {{ db_package }} package
+      yum:
+        name: "{{ db_package }}"
+        state: latest    
+      when: "'Error' in command_result.stdout"

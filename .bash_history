@@ -196,3 +196,132 @@ git-revert
 git revert
 git revert head
 git reset --hard HEAD~1
+lab task-control-flowcontrol setup 
+cd /home/student
+ll
+cd dev-flowcontrol/
+vim configure_database.yml
+mv configure_database.yml playbook.yml
+vim configure_database.yml
+cd ..
+git push origin master
+git add .
+git commit -m "Added dev-flowcontrol dir"
+git push
+git push origin master
+git push practice master
+git pull
+cd dev-flowcontrol/
+LL
+vim playbook.yml 
+ansible-playbook playbook.yml --syntax-check
+ansible-playbook playbook.yml 
+ansible-playbook configure_database.yml --syntax-check
+vim configure_database.yml 
+ansible-playbook configure_database.yml --syntax-check
+ansible-playbook playbook.yml 
+vim playbook.
+vim playbook.yml 
+vim configure_database.yml 
+ansible-playbook playbook.yml 
+lab task-control-flowcontrol grade
+cd ..
+git add .
+git commit -m "Completed task-control-flowcontrol lab"
+git config --global user.email maksim.ast@gmail.com
+git config --global user.name "Maksim Nikiforov"
+git commit --AMEND --RESET-AUTHOR
+git commit --amend -reset-author
+git commit --amend --reset-author
+git push
+git push practice master
+git pull practice master
+git push practice master
+git push practice master
+lab task-control-flowcontrol cleanup 
+lab task-control-handlers setup 
+cd dev-handlers/
+vim configure_db.yml
+vim configure_db.yml
+ansible-doc mysql_user
+ansible-playbook configure_db.yml --syntax-check
+ansible-playbook configure_db.yml 
+ansible-playbook configure_db.yml 
+vim configure_db.yml 
+ansible-playbook configure_db.yml 
+vim configure_db.
+vim configure_db.yml 
+ansible-playbook configure_db.yml 
+cd ..
+git add .
+git commit -m "Finished lab-control-handlers lab"
+git push practice master
+lab task-control-handlers cleanup 
+lab task-control-tags setup 
+cd dev-tags/
+vim configure_mail.yml
+vim playbook.yml
+ansible-playbook playbook.yml --syntax-check
+ansible-playbook playbook.yml 
+ansible-playbook playbook.yml 
+ansible-playbook playbook.yml --tags 'server'
+ansible mailservers -a 'yum list installed postfix'
+ansible-playbook playbook.yml --skip-tags 'server'
+vim configure_mail.yml 
+lab task-control-tags grade 
+cd ..
+git add .
+git commit -m "Completed task-control-tags lab"
+git push practice master
+lab task-control-tags cleanup 
+lab task-control-failures setup 
+cd /home/student
+cd dev-failures/
+vim playbook.yml
+ansible-playbook playbook.yml 
+vim playbook.yml 
+ansible-playbook playbook.yml 
+vim playbook.yml 
+ansible-playbook playbook.yml 
+vim playbook.yml 
+ansible-playbook playbook.yml 
+vim playbook.yml 
+ansible databases -a "yum -y remove mariadb-server"
+ansible-playbook playbook.
+ansible-playbook playbook.yml 
+ansible-playbook playbook.
+ansible-playbook playbook.yml
+ansible databases -a "yum -y remove mariadb-server"
+vim playbook.yml 
+ansible databases -a "yum -y remove mariadb-server"
+ansible-playbook playbook.yml
+ansible databases -a "yum -y remove mariadb-server"
+vim playbook.yml 
+ansible-playbook playbook.yml
+vim playbook.yml 
+ansible-playbook playbook.yml
+vim playbook.yml 
+ansible-playbook playbook.yml
+vim playbook.yml 
+ansible-playbook playbook.yml
+ssh servera.lab.example.com
+vim playbook.yml 
+ssh servera.lab.example.com
+ansible-playbook playbook.yml
+vim playbook.yml 
+ansible-playbook playbook.yml
+vim playbook.yml 
+ansible-playbook playbook.yml
+vim playbook.
+vim playbook.yml 
+ansible-playbook playbook.yml
+vim playbook.yml 
+ansible-playbook playbook.yml
+vim playbook.yml 
+ansible-playbook playbook.yml
+vim playbook.yml 
+ansible-playbook playbook.yml
+vim playbook.yml 
+ansible-playbook playbook.yml
+vim playbook.yml 
+ansible-playbook playbook.yml

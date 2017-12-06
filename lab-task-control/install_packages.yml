@@ -1,0 +1,15 @@
+---
+- name: Installs the required packages
+  yum:
+    name: "{{ item }}"
+  with_items:
+    - "{{ web_package }}"
+    - "{{ ssl_package }}"
+  when:
+    - inventory_hostname in groups["webservers"]
+    - "{{ ansible_memory_mb.real.total }} > {{ memory }}"
+  
+- name: Starts the service
+  service:
+    name: "{{ web_service }}"
+    state: started
