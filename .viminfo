@@ -9,6 +9,7 @@
 ~H
 # Command Line History (newest to oldest):
 :wq
+:q!
 :q
 
 # Search String History (newest to oldest):
@@ -34,18 +35,34 @@
 	 
 
 # File marks:
-'0  1  47  ~/jinja2-lab/motd.j2
-'1  11  8  ~/jinja2-lab/motd.yml
-'2  2  56  ~/jinja2-lab/motd.j2
-'3  4  0  ~/jinja2-lab/inventory
-'4  13  17  ~/jinja2/motd.yml
-'5  4  41  ~/jinja2/motd.j2
-'6  5  26  ~/jinja2/inventory
-'7  1  0  ~/lab-task-control/configure_web.yml
-'8  42  2  ~/lab-task-control/configure_web.yml
-'9  9  2  ~/lab-task-control/configure_web.yml
+'0  3  47  ~/dev-roles/roles/myvhost/meta/main.yml
+'1  2  20  ~/dev-roles/roles/myfirewall/defaults/main.yml
+'2  4  20  roles/myfirewall/defaults/main.yml
+'3  7  19  ~/dev-roles/roles/myfirewall/handlers/main.yml
+'4  20  36  ~/dev-roles/roles/myfirewall/tasks/main.yml
+'5  14  45  ~/dev-roles/use-vhost-role.yml
+'6  7  19  ~/dev-roles/roles/myvhost/handlers/main.yml
+'7  28  18  ~/dev-roles/roles/myvhost/tasks/main.yml
+'8  1  47  ~/jinja2-lab/motd.j2
+'9  11  8  ~/jinja2-lab/motd.yml
 
 # Jumplist (newest first):
+-'  3  47  ~/dev-roles/roles/myvhost/meta/main.yml
+-'  1  0  ~/dev-roles/roles/myvhost/meta/main.yml
+-'  2  20  ~/dev-roles/roles/myfirewall/defaults/main.yml
+-'  1  0  ~/dev-roles/roles/myfirewall/defaults/main.yml
+-'  4  20  roles/myfirewall/defaults/main.yml
+-'  1  0  roles/myfirewall/defaults/main.yml
+-'  7  19  ~/dev-roles/roles/myfirewall/handlers/main.yml
+-'  1  0  ~/dev-roles/roles/myfirewall/handlers/main.yml
+-'  20  36  ~/dev-roles/roles/myfirewall/tasks/main.yml
+-'  1  0  ~/dev-roles/roles/myfirewall/tasks/main.yml
+-'  14  45  ~/dev-roles/use-vhost-role.yml
+-'  1  0  ~/dev-roles/use-vhost-role.yml
+-'  7  19  ~/dev-roles/roles/myvhost/handlers/main.yml
+-'  1  0  ~/dev-roles/roles/myvhost/handlers/main.yml
+-'  28  18  ~/dev-roles/roles/myvhost/tasks/main.yml
+-'  1  0  ~/dev-roles/roles/myvhost/tasks/main.yml
 -'  1  47  ~/jinja2-lab/motd.j2
 -'  2  0  ~/jinja2-lab/motd.j2
 -'  11  8  ~/jinja2-lab/motd.yml
@@ -129,22 +146,56 @@
 -'  1  0  ~/.bash_history
 -'  1  0  ~/.bash_history
 -'  2  22  ~/dep-install/inventory
--'  1  0  ~/dep-install/inventory
--'  1  0  ~/.bash_history
--'  1  0  ~/.bash_history
--'  2  22  ~/dep-install/inventory
--'  1  0  ~/dep-install/inventory
--'  1  0  ~/.bash_history
--'  1  0  ~/.bash_history
--'  2  22  ~/dep-install/inventory
--'  1  0  ~/dep-install/inventory
--'  1  0  ~/.bash_history
--'  1  0  ~/.bash_history
--'  2  22  ~/dep-install/inventory
--'  1  0  ~/dep-install/inventory
--'  1  0  ~/.bash_history
 
 # History of marks within files (newest to oldest):
+
+> ~/dev-roles/roles/myvhost/meta/main.yml
+	"	3	47
+	^	3	48
+	.	3	47
+	+	3	47
+
+> ~/dev-roles/roles/myfirewall/defaults/main.yml
+	"	2	20
+	^	2	21
+	.	2	20
+	+	2	20
+
+> roles/myfirewall/defaults/main.yml
+	"	4	20
+	^	4	21
+	.	4	20
+	+	4	20
+
+> ~/dev-roles/roles/myfirewall/handlers/main.yml
+	"	7	19
+	^	7	20
+	.	7	19
+	+	7	19
+
+> ~/dev-roles/roles/myfirewall/tasks/main.yml
+	"	20	36
+	^	20	37
+	.	20	36
+	+	20	36
+
+> ~/dev-roles/use-vhost-role.yml
+	"	14	45
+	^	14	46
+	.	14	45
+	+	14	45
+
+> ~/dev-roles/roles/myvhost/handlers/main.yml
+	"	7	19
+	^	7	20
+	.	7	19
+	+	7	19
+
+> ~/dev-roles/roles/myvhost/tasks/main.yml
+	"	28	18
+	^	28	19
+	.	28	18
+	+	28	18
 
 > ~/jinja2-lab/motd.j2
 	"	1	47
@@ -299,85 +350,3 @@
 	^	21	24
 	.	21	23
 	+	21	23
-
-> ~/dev-handlers/configure_db.yml
-	"	31	2
-	.	31	0
-	+	9	24
-	+	4	62
-	+	7	26
-	+	8	104
-	+	9	85
-	+	29	21
-	+	28	9
-	+	32	3
-	+	11	1
-	+	31	1
-	+	39	23
-	+	38	31
-	+	43	23
-	+	31	24
-	+	31	24
-	+	31	0
-	+	31	0
-
-> ~/dev-handlers/configure_db.
-	"	1	0
-
-> ~/dev-flowcontrol/configure_database.yml
-	"	8	13
-	^	8	14
-	.	8	14
-	+	40	32
-	+	35	53
-	+	28	40
-	+	7	0
-	+	6	1
-	+	17	1
-	+	20	16
-	+	2	70
-	+	15	80
-	+	13	20
-	+	12	25
-	+	4	3
-	+	1	0
-	+	2	0
-	+	8	14
-
-> ~/dev-flowcontrol/playbook.yml
-	"	30	6
-	^	30	46
-	.	30	45
-	+	30	45
-
-> ~/dev-flowcontrol/playbook.
-	"	1	0
-
-> ~/dev-vars-facts/setup_facts.yaml
-	"	6	8
-	^	6	9
-	.	6	8
-	+	17	0
-	+	6	28
-	+	16	31
-	+	6	8
-
-> ~/dev-vars-facts/custom.fact
-	"	4	12
-	^	4	13
-	.	4	12
-	+	4	12
-
-> ~/dev-vars-playbook/playbook.yml
-	"	46	23
-	^	46	24
-	.	46	23
-	+	14	14
-	+	15	27
-	+	31	38
-	+	35	29
-	+	48	4
-	+	39	0
-	+	47	1
-	+	42	8
-	+	46	23
