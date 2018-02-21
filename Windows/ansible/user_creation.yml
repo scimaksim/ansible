@@ -9,7 +9,6 @@
         name: "{{ user_name }}"
         firstname: "{{ first_name }}"
         surname: "{{ surname }}"
-        email: "{{ email }}"
         password: "{{ password }}"
         state: present
         groups: "{{ item }}"
