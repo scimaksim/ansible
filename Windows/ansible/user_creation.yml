@@ -9,4 +9,4 @@
         name: "{{ user_name }}"
         password: Redhat123
         state: present
-        groups: Users  
+        groups: Users, Tower Users  
