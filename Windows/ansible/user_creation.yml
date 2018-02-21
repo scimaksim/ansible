@@ -9,4 +9,6 @@
         name: "{{ user_name }}"
         password: "{{ password }}"
         state: present
-        groups: "{{ groups }}"  
+        groups: "{{ item }}"
+        with_items: locales.split(',')
+
