@@ -7,6 +7,9 @@
     - name: Create a user name maks
       win_domain_user:
         name: "{{ user_name }}"
+        firstname: "{{ first_name }}"
+        surname: "{{ surname }}"
+        email: "{{ email }}"
         password: "{{ password }}"
         state: present
         groups: "{{ item }}"
