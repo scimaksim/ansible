@@ -13,5 +13,4 @@ gns3-access
 
 [cisco:vars]
 ansible_network_os=ios
-ansible_user=david
-ansible_password=cisco
+
