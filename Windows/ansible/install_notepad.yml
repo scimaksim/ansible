@@ -1,0 +1,11 @@
+---
+- name: App installation
+  hosts: windows
+  gather_facts: false
+  
+  tasks:
+    - name: Install notepadplusplus
+      win_chocolatey:
+        name: putty.install
+        state: present
+          
