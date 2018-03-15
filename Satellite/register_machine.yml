@@ -12,4 +12,5 @@
     - name: 'Register client with subscription-manager'
       redhat_subscription:
         state: "present"
+        org_id: "Default_Organization"
         activationkey: 7.4
