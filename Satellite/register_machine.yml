@@ -1,12 +1,14 @@
-- name: 'Install bootstrap rpm'
-  yum:
-    name: "http://satellite.mlab.com/pub/katello-ca-consumer-latest.noarch.rpm"
-    state: "present"
+  hosts: all 
+  tasks:
+  - name: 'Install bootstrap rpm'
+    yum:
+      name: "http://satellite.mlab.com/pub/katello-ca-consumer-latest.noarch.rpm"
+      state: "present"
 
-- name: 'Register client with subscription-manager'
-  redhat_subscription:
-    state: "present"
-    org_id: "Default_Organization"
-    environment: "Library"
-    username: "admin"
-    password: "changeme"
+  - name: 'Register client with subscription-manager'
+    redhat_subscription:
+      state: "present"
+      org_id: "Default_Organization"
+      environment: "Library"
+      username: "admin"
+      password: "changeme"
