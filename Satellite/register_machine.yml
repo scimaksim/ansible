@@ -1,3 +1,6 @@
+---
+ 
+  - name: Register RHEL content host to Red Hat Satellite
   hosts: redhat 
   tasks:
   - name: 'Install bootstrap rpm'
