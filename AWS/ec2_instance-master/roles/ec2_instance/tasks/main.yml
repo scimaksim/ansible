@@ -1,0 +1,32 @@
+---
+- name: create or terminate ec2 instance
+  ec2:
+    keypair: "{{ ec2_keypair }}"
+    type: "{{ ec2_type }}"
+    image: "{{ ec2_image }}"
+    region: "{{ ec2_region }}"
+    exact_count: "{{ ec2_exact_count }}"
+    vpc_subnet_id: "{{ ec2_vpc_subnet_id }}"
+    assign_public_ip: yes
+    count_tag:
+      Name: "{{ ec2_instance_prefix }}-{{ ec2_instance_name }}"
+    instance_tags:
+      Name: "{{ ec2_instance_prefix }}-{{ ec2_instance_name }}"
+      ansible_lab: true
+    wait: "{{ ec2_wait }}"
+  register: ec2
+  tags:
+    - create
+    - terminate
+
+- name: Wait for SSH to come up
+  wait_for:
+    host: "{{ item.public_dns_name }}"
+    port: 22
+    delay: 60
+    timeout: 320
+    state: started
+  with_items: "{{ ec2.instances }}"
+  delegate_to: localhost
+  tags:
+    - create

@@ -1,0 +1,13 @@
+---
+- name: Terminate lab instances in AWS
+  hosts: localhost
+  connection: local
+  become: no
+  gather_facts: yes
+
+  vars:
+    ec2_exact_count: 0
+    ec2_wait: no
+
+  roles:
+    - ec2_instance
