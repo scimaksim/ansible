@@ -4,15 +4,13 @@
   gather_facts: False
 
   tasks:
-
     - name: Provision a set of instances
       ec2:
-         key_name: my_key
          group: test
          instance_type: t2.micro
          image: "{{ ami_id }}"
          wait: true
-         exact_count: 5
+         exact_count:"{{ exact_count }}""
          count_tag:
             Name: Demo
          instance_tags:
