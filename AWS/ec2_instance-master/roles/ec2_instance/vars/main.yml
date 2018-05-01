@@ -1,1 +1,9 @@
 ssh_key_file: /.ssh/ansible-mn.pem
+# Define AWS EC2 parameters required to provision instances
+ec2_keypair: ansible-mn
+ec2_type: t2.small
+ec2_image: ami-cb90a9dd
+ec2_region: us-east-1
+ec2_vpc_subnet_id: subnet-7f5cb770
+ec2_instance_prefix: mn
+ec2_instance_name: demo
