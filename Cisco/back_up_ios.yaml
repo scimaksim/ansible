@@ -1,7 +1,7 @@
 ---
 # User network_backup role from https://github.com/network-automation/network_backup/
 # to back up Cisco IOS devices.
-- hosts: cisco
+- hosts: all
   connection: local
   gather_facts: no
 
