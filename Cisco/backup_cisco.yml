@@ -1,5 +1,5 @@
 ---
-- hosts: all
+- hosts: cisco
   connection: network_cli
   remote_user: david
   become: yes
