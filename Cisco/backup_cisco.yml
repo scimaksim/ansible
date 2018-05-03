@@ -4,6 +4,7 @@
   remote_user: david
   become: yes
   become_method: enable
+  ansible_become_pass: cisco
 
   tasks:
     - name: Backup configuration
