@@ -4,6 +4,9 @@
   remote_user: david
   become: yes
   become_method: enable
+  provider:
+    username: david
+    password: cisco
 
   tasks:
     - name: Ping Cisco devices
