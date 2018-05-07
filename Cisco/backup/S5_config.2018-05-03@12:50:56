@@ -1,8 +1,8 @@
 Building configuration...
 
-Current configuration with default configurations exposed : 41958 bytes
+Current configuration with default configurations exposed : 41934 bytes
 !
-! Last configuration change at 21:47:01 UTC Wed May 2 2018
+! Last configuration change at 15:16:49 UTC Thu May 3 2018
 !
 version 15.2
 parser cache
@@ -40,7 +40,7 @@ no service sequence-numbers
 service counters max age 0
 service dhcp
 !
-hostname S1
+hostname S5
 !
 boot-start-marker
 boot bootldr 
@@ -208,7 +208,7 @@ ip accounting-threshold 512
 ip cef optimize neighbor resolution
 ip cef
 no ip cef accounting 
-ip cef load-sharing algorithm universal FCF945DB
+ip cef load-sharing algorithm universal B0E1EEB2
 ip igmp ssm-map query dns
 ip igmp snooping report-suppression
 no ip igmp snooping tcn query solicit
@@ -246,7 +246,7 @@ ipv6 multicast multipath
 ipv6 multicast rpf use-bgp
 ipv6 cef optimize neighbor resolution
 no ipv6 cef
-ipv6 cef load-sharing algorithm universal FCF945DB
+ipv6 cef load-sharing algorithm universal B0E1EEB2
 kerberos timeout 15
 kerberos retry 4
 kerberos processes 1
@@ -309,9 +309,8 @@ no spanning-tree optimize bpdu transmission
 spanning-tree queue maxsize 12288
 spanning-tree etherchannel guard misconfig
 spanning-tree extend system-id
-spanning-tree uplinkfast max-update-rate 84
+spanning-tree uplinkfast max-update-rate 47
 spanning-tree pathcost method short
-spanning-tree vlan 1 priority 0
 crypto engine software ipsec
 no crypto engine software isakmp
 !
@@ -319,7 +318,7 @@ process-max-time 200
 !
 vlan internal allocation policy ascending
 !
-vlan 10,20,30,40,50 
+vlan 10,20,30,40,50,100-101 
 cdp advertise-v2
 cdp timer 60
 cdp holdtime 180
@@ -1208,7 +1207,7 @@ interface GigabitEthernet3/3
  no bgp-policy destination ip-qos-map
 !
 interface Vlan1
- ip address 192.168.122.71 255.255.255.0
+ ip address 192.168.122.75 255.255.255.0
  ip redirects
  ip unreachables
  ip proxy-arp
@@ -1321,7 +1320,7 @@ ip ssh client algorithm encryption aes128-ctr aes192-ctr aes256-ctr aes128-cbc 3
 no ip access-list helper egress check
 !
  ip prefix-list sequence-number
-ip sla low-memory 102816522
+ip sla low-memory 102828538
  timeout 900
 ip sla server twamp
  port 862
@@ -1487,7 +1486,7 @@ line vty 0 4
  start-character 17
  stop-character 19
 !
-exception-slave core-file S1-core
+exception-slave core-file S5-core
 exception-slave protocol tftp
 exception protocol tftp
 exception region-size 131072

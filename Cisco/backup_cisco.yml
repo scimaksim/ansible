@@ -4,7 +4,6 @@
   remote_user: david
   become: yes
   become_method: enable
-  become_pass: cisco
 
   tasks:
     - name: Backup configuration
