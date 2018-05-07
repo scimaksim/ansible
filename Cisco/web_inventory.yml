@@ -1,6 +1,6 @@
 ---
   - name: build IOS XE inventory
-    hosts: ios
+    hosts: cisco
     connection: local
     gather_facts:  False
 
