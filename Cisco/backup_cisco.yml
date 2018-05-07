@@ -11,7 +11,7 @@
         backup: yes
       register: backup_path
     
-    - name: Copy backups to my designated location
-      copy:
-        src: "{{ backup_path.backup_path }}"
-        dest: "/root/ansible/Cisco/backup"
+#    - name: Copy backups to my designated location
+#      copy:
+#        src: "{{ backup_path.backup_path }}"
+#        dest: "/root/ansible/Cisco/backup"
