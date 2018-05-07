@@ -16,7 +16,7 @@
       - name: create HTML report
         template:
           src: report-ios.j2
-          dest: /var/www/html/inventory_report_ios.html
+          dest: /usr/share/nginx/html/inventory_report_ios.html
         delegate_to: localhost
         run_once: true
 #          provider: "{{login_info}}"
