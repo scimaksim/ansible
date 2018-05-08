@@ -18,7 +18,6 @@
         become: yes
         become_method: enable
         remote_user: david
-        connection: network_cli
 
       - name: create HTML report
         template:
@@ -27,6 +26,6 @@
         delegate_to: 192.168.122.200
         become: yes
         become_user: root
-        become_method: sudo
+        become_method: su
         run_once: true
 #          provider: "{{login_info}}"
