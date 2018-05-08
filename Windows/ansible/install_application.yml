@@ -4,8 +4,7 @@
   gather_facts: false
   
   tasks:
-    - name: Install notepadplusplus
+    - name: Install application
       win_chocolatey:
-        name: putty.install
-        state: present
-          
+        name: {{ application }}
+        state: {{ state }}
