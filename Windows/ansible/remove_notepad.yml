@@ -7,5 +7,5 @@
     - name: Install notepadplusplus
       win_chocolatey:
         name: notepadplusplus
-        state: absent
+        state: present
           
