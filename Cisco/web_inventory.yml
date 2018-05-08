@@ -16,7 +16,7 @@
       - name: create HTML report
         template:
           src: report-ios.j2
-          dest: /var/lib/awx/public/static/assets/inventory_report_ios.html
+          dest: "{{ destination_dir }}"
         delegate_to: localhost
         become_user: root
         run_once: true
