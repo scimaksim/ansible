@@ -15,6 +15,7 @@
       - name: gathering IOS XE facts
         ios_facts:
         register: all_facts
+        connection: network_cli
         become: yes
         become_method: enable
         remote_user: david
@@ -24,6 +25,7 @@
           src: report-ios.j2
           dest: "{{ destination_dir }}"
         delegate_to: 192.168.122.200
+        connection: ssh
         become: yes
         become_user: root
         become_method: su
