@@ -17,7 +17,7 @@
         template:
           src: report-ios.j2
           dest: "{{ destination_dir }}"
-        delegate_to: localhost
+        delegate_to: 192.168.122.200
         become_user: root
         run_once: true
 #          provider: "{{login_info}}"
