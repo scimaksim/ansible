@@ -1,3 +1,7 @@
+[localhost]
+localhost
+ansible_connection=local
+
 [gns3-core]
 S1 ansible_host=192.168.122.71
 S2
