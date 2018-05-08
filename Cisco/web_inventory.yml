@@ -1,6 +1,8 @@
 ---
   - name: build IOS XE inventory
     hosts: cisco
+    connection: network_cli
+    become: yes
 
     vars:
        desired_ios_version: "16.06.01"
@@ -10,8 +12,6 @@
       - name: gathering IOS XE facts
         ios_facts:
         register: all_facts
-        connection: network_cli
-        become: yes
         become_method: enable
         remote_user: david
 
@@ -20,5 +20,7 @@
           src: report-ios.j2
           dest: "{{ destination_dir }}"
         delegate_to: 192.168.122.200
+        remote_user: root
+        become_method: su
         run_once: true
 #          provider: "{{login_info}}"
