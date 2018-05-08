@@ -2,9 +2,9 @@
 - name: App installation
   hosts: windows
   gather_facts: false
-  
+
   tasks:
     - name: Install application
       win_chocolatey:
-        name: {{ application }}
-        state: {{ state }}
+        name: "{{ application }}"
+        state: "{{ state }}"
