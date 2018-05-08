@@ -1,8 +1,11 @@
 ---
   - name: build IOS XE inventory
     hosts: cisco
-    connection: local
-    gather_facts:  False
+    connection: network_cli
+    remote_user: david
+    become: yes
+    become_method: enable
+
 
     vars:
        desired_ios_version: "16.06.01"
