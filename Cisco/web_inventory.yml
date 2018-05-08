@@ -1,7 +1,7 @@
 ---
   - name: build IOS XE inventory
     hosts: cisco
-#    connection: network_cli
+    connection: network_cli
 #    remote_user: david
 #    become: yes
 #    become_method: enable
@@ -25,7 +25,7 @@
           src: report-ios.j2
           dest: "{{ destination_dir }}"
         delegate_to: 192.168.122.200
-        connection: ssh
+        connection: local
         become: yes
         become_user: root
         become_method: su
