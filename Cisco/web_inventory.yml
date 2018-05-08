@@ -18,5 +18,6 @@
           src: report-ios.j2
           dest: /var/lib/awx/public/static/assets/inventory_report_ios.html
         delegate_to: localhost
+        remote_user: root
         run_once: true
 #          provider: "{{login_info}}"
