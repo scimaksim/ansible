@@ -13,5 +13,5 @@
     
 #    - name: Copy backups to my designated location
 #      copy:
-#        src: "{{ backup_path.backup_path }}"
-#        dest: "/root/ansible/Cisco/backup"
+#        src: /var/lib/awx/projects/_41__cisco_backups/Cisco/backup/
+#        dest: /root/ansible/Cisco/backup/
