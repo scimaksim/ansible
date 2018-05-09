@@ -4,9 +4,9 @@
     connection: network_cli
     become: yes
 
-  tasks:
-    - name: Create a VLAN
-      net_vlan:
-        vlan_id: "{{item}}"
-        state: "{{state}}"
-      loop: "{{vlan_id}}"
+    tasks:
+      - name: Create a VLAN
+        net_vlan:
+          vlan_id: "{{item}}"
+          state: "{{state}}"
+        loop: "{{vlan_id}}"
