@@ -1,14 +1,12 @@
 ---
-- name: Create a VLAN
-  hosts: S1
-  gather_facts: false
-  connection: local
-    
+  - name: Create a VLAN
+    hosts: cisco
+    connection: network_cli
+    become: yes
+
   tasks:
     - name: Create a VLAN
-      ios_vlan:
-        vlan_id: 156
+      net_vlan:
+        vlan_id: "{{item}}"
         state: present
-        
-
-
+      loop: "{{vlan_id}}"
