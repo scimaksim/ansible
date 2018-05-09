@@ -21,5 +21,7 @@
           dest: "{{ destination_dir }}"
         delegate_to: localhost
         become: yes
+        become_user: root
+        become_method: sudo
         run_once: true
 #          provider: "{{login_info}}"
