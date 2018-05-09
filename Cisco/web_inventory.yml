@@ -20,7 +20,7 @@
           src: report-ios.j2
           dest: "{{ destination_dir }}"
         delegate_to: localhost
-        remote_user: root
+        become_user: root
         become_method: su
         run_once: true
 #          provider: "{{login_info}}"
