@@ -8,5 +8,5 @@
     - name: Create a VLAN
       net_vlan:
         vlan_id: "{{item}}"
-        state: present
+        state: "{{state}}"
       loop: "{{vlan_id}}"
