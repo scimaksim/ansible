@@ -20,6 +20,5 @@
           src: report-ios.j2
           dest: "{{ destination_dir }}"
         delegate_to: localhost
-        become: yes
         run_once: true
 #          provider: "{{login_info}}"
