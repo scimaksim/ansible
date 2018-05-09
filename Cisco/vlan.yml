@@ -7,6 +7,5 @@
     tasks:
       - name: Create a VLAN
         net_vlan:
-          vlan_id: "{{item}}"
+          vlan_id: "{{vlan_id}}"
           state: "{{state}}"
-        loop: "{{vlan_id}}"
