@@ -2,18 +2,11 @@
 
 - name: Cisco Wired Campus Design
   hosts: gns3-access
-  gather_facts: false
-  connection: local
+  connection: network_cli
 
-  vars:
-    cli:
-      username: david
-      password: cisco
-      
   tasks:
     - name: Global config settings
       ios_config:
-        provider: "{{ cli }}"
         lines:
           - vtp mode transparent
           - spanning-tree mode rapid-pvst
@@ -39,7 +32,7 @@
           - ip default-gateway 192.168.122.1
           - "ip dhcp snooping vlan 100,101"
 
-          - no ip dhcp snooping information option 
+          - no ip dhcp snooping information option
           - ip dhcp snooping
           - "ip arp inspection vlan 100,101"
           - spanning-tree portfast bpduguard default
