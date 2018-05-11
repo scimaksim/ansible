@@ -1,5 +1,6 @@
 [windows]
 server2016.MLAB.COM
+winclone
 
 [windows:vars]
 ansible_user=admin@MLAB.COM
