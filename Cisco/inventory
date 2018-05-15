@@ -31,3 +31,6 @@ server2016
 [rhel]
 node
 node2
+
+[idm]
+idm
