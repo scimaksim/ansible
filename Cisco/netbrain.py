@@ -4,7 +4,7 @@ import base64
 # Need to install requests package for python
 # pip install requests
 user = "admin"         
-pwd = "admin"         
+pwd = "Redhat123"         
 server_url = "http://windows.mlab.com/ServicesAPI/"              
 headers = {"Content-Type": "application/json", "Accept": "application/json"}
 TENANT = "tenant_name"       
