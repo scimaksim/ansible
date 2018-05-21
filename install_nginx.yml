@@ -1,0 +1,4 @@
+---
+- hosts: idm
+  roles:
+    - geerlingguy.nginx 

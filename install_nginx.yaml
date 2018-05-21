@@ -1,0 +1,5 @@
+---
+  - hosts: idm
+      roles:
+        - { role: geerlingguy.nginx }
+

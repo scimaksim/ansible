@@ -1,3 +1,6 @@
+[idm]
+idm
+
 [gns3-core]
 S1 ansible_host=192.168.122.71
 S2
@@ -25,9 +28,3 @@ ansible_ssh_pass = !vault |
           3537623530313631300a373733386263303433366339356537313639323665363232323539316563
           3932
 
-[windows]
-server2016
-
-[rhel]
-node
-node2
