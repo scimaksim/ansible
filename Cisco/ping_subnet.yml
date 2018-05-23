@@ -1,0 +1,12 @@
+---
+- hosts: all
+  connection: network_cli
+  remote_user: david
+  become: yes
+  become_method: enable
+
+  tasks:
+    - name: Ping Cisco devices
+      ios_ping:
+        dest: 192.168.122.0
+      
