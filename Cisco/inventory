@@ -1,11 +1,18 @@
 [gns3-core]
 S1 ansible_host=192.168.122.71
 S2
+XR1 ansible_host=192.168.122.10
+XR2 ansible_host=192.168.122.11
+
+[gn3-distribution]
+NX1 ansible_host=192.168.122.12
+NX2 ansible_host=192.168.122.13
 
 [gns3-access]
 S3
 S4
 S5
+NX3 ansible_host=192.168.122.14
 
 [cisco:children]
 gns3-core
