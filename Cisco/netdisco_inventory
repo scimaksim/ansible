@@ -1,0 +1,8 @@
+select json_agg(t)
+from (
+  select
+    vendor,
+    name,
+    ip
+  from device
+) t;
