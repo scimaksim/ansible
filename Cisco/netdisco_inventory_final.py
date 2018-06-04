@@ -3,34 +3,13 @@ import json
 import psycopg2
 import sys
 import pprint
-import argparse
+from psycopg2.extras import RealDictCursor
 
-try:
-    import json
-except ImportError:
-    import simplejson as json
 
-class NetdiscoInventory(object):
-
-    def __init__(self):
-        self.inventory = {}
-        self.read_cli_args()
-
-        # Called with `--list`.
-        if self.args.list:
-            self.inventory = self.get_inventory()
-        # Called with `--host [hostname]`.
-        elif self.args.host:
-            # Not implemented, since we return _meta info `--list`.
-            self.inventory = self.empty_inventory()
-        # If no groups or vars are present, return an empty inventory.
-        else:
-            self.inventory = self.empty_inventory()
-
-        print json.dumps(self.inventory, indent=4);
-
-    def get_inventory(self):
+def main():
         conn_string = "host='localhost' dbname='netdisco' user='netdisco' password='redhat'"
+        # print the connection string we will use to connect
+        # print "Connecting to database\n       ->%s" % (conn_string)
 
         # get a connection, if a connect cannot be made an exception will be raised here
         conn = psycopg2.connect(conn_string)
@@ -58,17 +37,16 @@ class NetdiscoInventory(object):
                 inventory['_meta']['hostvars'][host] = {}
             # Add the role variable for this host to hostvars
             inventory['_meta']['hostvars'][host]['ip'] = ip
-        # print json.dumps(inventory, indent=4)
+        print json.dumps(inventory, indent=4)
 
-    # Empty inventory for testing.
-    def empty_inventory(self):
-        return {'_meta': {'hostvars': {}}}
+        # retrieve the records from the database
+        # for row in cursor.fetchall(): group = row[1] if group is None: group = 'ungrouped'
+        # print json.dumps(cursor.fetchall(), sort_keys=True, indent=2)
 
-    # Read the command line args passed to the script.
-    def read_cli_args(self):
-        parser = argparse.ArgumentParser()
-        parser.add_argument('--list', action = 'store_true')
-        parser.add_argument('--host', action = 'store')
-        self.args = parser.parse_args
-		
-NetdiscoInventory()
+        # print out the records using pretty print
+        # note that the NAMES of the columns are not shown, instead just indexes.
+        # for most people this isn't very useful so we'll show you how to return
+        # columns as a dictionary (hash) in the next example.
+
+if __name__ == "__main__":
+        main()
