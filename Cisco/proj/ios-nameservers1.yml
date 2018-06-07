@@ -1,0 +1,12 @@
+---
+  - name: sets nameservers on ios device
+    hosts: ios
+    vars:
+      nameservers:
+        - 8.8.8.8
+        - 8.8.4.4
+
+    tasks:
+      - name: set nameservers
+        ios_system:
+          name_servers: "{{ nameservers }}"

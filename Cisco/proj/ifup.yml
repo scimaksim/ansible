@@ -1,0 +1,16 @@
+---
+  - name: play to bring up an interface
+    hosts: "{{ target }}"
+
+    tasks:
+      - name: show interface {{ intf }} on a VyOS box
+        vyos_interface:
+          name: "{{ intf }}"
+          enabled: True
+        when: target in groups['vyos']
+
+      - name: show interface {{ intf }} on an IOS box
+        ios_interface:
+          name: "{{ intf }}"
+          enabled: True
+        when: target in groups['ios']
