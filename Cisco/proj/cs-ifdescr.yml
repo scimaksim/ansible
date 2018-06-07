@@ -1,0 +1,14 @@
+---
+  - name: a play that sets interface descriptions for cloud-services devices
+    hosts: cloud-services
+
+    tasks:
+      - name: set interface description
+        ios_command:
+           commands:
+             - show interfaces | include description
+        register: results
+
+      - name: show results
+        debug:
+          msg: "{{ results.stdout }}"

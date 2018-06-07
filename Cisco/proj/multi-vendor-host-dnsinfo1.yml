@@ -1,0 +1,25 @@
+---
+  - name: multi-vendor play to display host name, domain name, nameservers
+    hosts: "{{ target | default('network') }}"
+
+    tasks:
+      - name: ios host, domain, nameserver
+        ios_command:
+          commands:
+            - sh run | include hostname
+            - sh run | include ip domain name
+            - sh run | include ip name-server
+        register: result
+        when: inventory_hostname in groups['ios']
+
+      - name: vyos host, domain, nameserver
+        vyos_command: 
+          commands:
+            - sh host name
+            - sh host domain
+            - sh config | grep name-server
+        register: result
+        when: inventory_hostname in groups['vyos']
+
+      - debug: msg="{{ result.stdout }}"
+        when: inventory_hostname in groups['vyos']

@@ -1,0 +1,14 @@
+---
+  - name: a play that backs up network device configurations
+    hosts: "{{ target | default('network') }}"
+
+    tasks:
+      - name: backup config of vyos device
+        vyos_config:
+          backup: yes
+        when: inventory_hostname in groups['vyos']
+
+      - name: backup config of ios device
+        ios_config:
+          backup: yes
+        when: inventory_hostname in groups['ios']

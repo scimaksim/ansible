@@ -1,0 +1,16 @@
+---
+  - name: A reachability test
+    hosts: cs01
+    gather_facts: no
+    vars:
+      utility_ipv4: 172.25.250.8
+      tower_ipv4: 172.25.250.9
+
+    tasks:
+      - name: "Test reachability to utility: {{ utility_ipv4 }}"
+        ios_ping:
+          dest: "{{ utility_ipv4 }}"
+
+      - name: "Test reachability to tower: {{ tower_ipv4 }}"
+        ios_ping:
+          dest: "{{ tower_ipv4 }}"

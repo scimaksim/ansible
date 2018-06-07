@@ -1,0 +1,12 @@
+---
+  - name: a play that gathers all facts from a particular vyos machine
+    hosts: spine01
+
+    tasks:
+      - name: invoke vyos_facts with gather_subset=all
+        vyos_facts:
+          gather_subset: all
+        register: result
+
+      - debug:
+          msg="{{ result }}"

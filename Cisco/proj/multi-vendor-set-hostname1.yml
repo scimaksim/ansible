@@ -1,0 +1,14 @@
+---
+  - name: sets hostname in a multi-vendor way
+    hosts: "{{ target | default('network') }}"
+
+    tasks:
+      - name: set hostname on vyos devices
+        vyos_system:
+          host_name: "{{ inventory_hostname }}"
+        when: inventory_hostname in groups['vyos']
+
+      - name: set hostname on ios device
+        ios_system:
+          hostname: "{{ inventory_hostname }}"
+        when: inventory_hostname in groups['ios']

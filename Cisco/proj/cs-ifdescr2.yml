@@ -1,0 +1,6 @@
+---
+  - name: manages interface descriptions for cloud services
+    hosts: cloud-services
+
+    roles:
+      - ios-cs-ifdescr

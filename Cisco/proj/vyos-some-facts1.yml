@@ -1,0 +1,16 @@
+---
+  - name: a play that gathers some facts and displays them
+    hosts: vyos
+
+    tasks:
+      - name: invoke vyos_facts
+        vyos_facts:
+          gather_subset: default
+        when: ansible_network_os == 'vyos'
+
+      - debug:
+          msg:
+            - "Host name: {{ ansible_net_hostname }}"
+            - "Model: {{ ansible_net_model }}"
+            - "Version: {{ ansible_net_version }}"
+            - "SerialNum: {{ ansible_net_serialnum }}"

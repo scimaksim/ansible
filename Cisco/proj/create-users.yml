@@ -1,0 +1,12 @@
+- name: a play that creates users on the spine machines
+  hosts: spines
+  vars_files:
+    - vars/users-secret.yml
+
+  tasks:
+    - name: create users
+      vyos_user:
+        name: "{{ item.name }}"
+        configured_password: "{{ item.pw | password_hash('sha512') }}"
+        state: present
+      loop: "{{ newusers }}"

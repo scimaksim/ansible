@@ -1,0 +1,9 @@
+host_object_data:
+  - { name: spine01, ipv4: 10.0.0.1/32 }
+  - { name: spine02, ipv4: 10.0.0.11/32 }
+  - { name: leaf01, ipv4: 192.168.0.1/32 }
+  - { name: leaf02, ipv4: 192.168.0.2/32 }
+  - { name: cs01, ipv4: 172.16.0.1/32 }
+  - { name: server01, ipv4: 10.10.10.2 }
+  - { name: server02, ipv4: 192.168.10.2 }
+  - { name: server03, ipv4: 172.16.10.2 }

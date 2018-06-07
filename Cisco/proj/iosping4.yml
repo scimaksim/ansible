@@ -1,0 +1,11 @@
+---
+  - name: A reachability test
+    hosts: cs01
+    gather_facts: no
+    vars:
+      dest: 172.25.250.9
+
+    tasks:
+      - name: "Test reachability from {{ inventory_hostname }} to {{ dest }}"
+        ios_ping:
+          dest: "{{ dest }}"

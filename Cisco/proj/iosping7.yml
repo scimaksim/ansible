@@ -1,0 +1,12 @@
+---
+  - name: A reachability test
+    hosts: cs01
+    vars_files:
+      - vars/myvars.yml
+
+    tasks:
+      - name: "Test reachability from {{ inventory_hostname }} to {{ dest }}"
+        ios_ping:
+          dest: "{{ item }}"
+        loop: "{{ ipv4_addresses | select('match', '^172.25.250..*') | list }}"
+        when: ansible_network_os == 'ios'

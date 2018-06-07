@@ -1,0 +1,13 @@
+---
+  - name: A reachability
+    hosts: cs01
+    vars:
+      interesting_destinations:
+        - 172.25.250.8
+        - 172.25.250.9
+
+    tasks:
+      - name: Test reachability from {{ inventory_hostname }} to interesting destinations"
+        ios_ping:
+          dest: "{{ item }}"
+        loop: "{{ interesting_destinations }}"

@@ -1,0 +1,45 @@
+---
+  - name: play for vyos devices that backs up config and looks at system elements
+    hosts: "{{ target }}"
+
+    tasks:
+      - block:
+        - name: back up vyos config
+          vyos_config:
+            backup: yes
+
+        - name: look at vyos system elements
+          vyos_command:
+            commands:
+              - sh host name
+              - sh system uptime
+              - sh host domain
+              - sh host date
+              - sh host os
+              - sh sys mem
+          register: results
+
+        - name: show results
+          debug:
+            var: results.stdout
+        when: ansible_network_os == "vyos"
+
+      - block:
+        - name: back up ios config
+          ios_config:
+            backup: yes
+
+        - name: look at ios system elements
+          ios_command:
+            commands:
+              - sh ver | include uptime
+              - sh ip domain
+              - sh clock
+              - sh ip name-server
+              - sh proc mem platform | include system memory
+          register: results
+
+        - name: show results
+          debug:
+            var: results.stdout
+        when: ansible_network_os == "ios"

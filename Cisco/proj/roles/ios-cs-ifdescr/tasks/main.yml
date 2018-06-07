@@ -1,0 +1,15 @@
+---
+# tasks file for ios-cs-ifdescr
+- name: set interface description
+  ios_interface:
+    aggregate: "{{ interfaces }}"
+
+- name: get interface descriptions
+  ios_command:
+    commands:
+      - show interfaces | include Description
+  register: results
+
+- name: show results
+  debug:
+    msg: "{{ results.stdout }}"

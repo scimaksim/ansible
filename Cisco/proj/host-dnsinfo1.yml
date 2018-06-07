@@ -1,0 +1,14 @@
+---
+  - name: display host name, domain name, nameservers for ios devices
+    hosts: ios
+
+    tasks:
+      - name: run the commands
+        ios_command:
+          commands:
+            - sh run | include hostname
+            - sh run | include ip domain name
+            - sh run | include ip name-server
+        register: result
+
+      - debug: msg="{{ result.stdout }}"

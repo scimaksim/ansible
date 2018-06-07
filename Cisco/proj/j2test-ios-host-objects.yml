@@ -1,0 +1,16 @@
+---
+  - name: a play that builds a file containing IOS static host object statements
+    hosts: localhost
+    connection: local
+    gather_facts: no
+    vars:
+      - srcfile: j2/ios-host-objects.j2
+      - destfile: out/ios-host-objects.cmd
+    vars_files:
+      - vars/host-objects.yml
+
+    tasks:
+      - name: dump output from template to a file
+        template:
+          src: "{{ srcfile }}"
+          dest: "{{ destfile }}"
