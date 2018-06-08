@@ -1,0 +1,21 @@
+---
+  - name: play that configures OSPF according to data and templates
+    hosts: network
+    vars:
+      - vyos_ospf_template: j2/vyos-ospf.j2
+      - ios_ospf_template: j2/ios-ospf.j2
+    vars_files:
+      - vars/layer3-branch-corp-cloud.yml
+
+    tasks:
+      - name: configure ospf on vyos 
+        vyos_config:
+          src: "{{ vyos_ospf_template }}"
+          save: yes
+        when: ansible_network_os == 'vyos'
+
+      - name: configure ospf on ios
+        ios_config:
+          src: "{{ ios_ospf_template }}"
+          save: yes
+        when: ansible_network_os == 'ios'

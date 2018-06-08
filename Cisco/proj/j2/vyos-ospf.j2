@@ -1,0 +1,12 @@
+{% for intf in interface_data[inventory_hostname] -%}
+{% if intf.name == 'lo' %}
+set protocols ospf parameters router-id {{ intf.ipv4 | ipaddr('address') }}
+set protocols ospf log-adjacency-changes
+{% if inventory_hostname == 'spine01' or inventory_hostname == 'spine02' %}
+set protocols ospf default-information originate always
+set protocols ospf default-information originate metric-type 2
+{% endif -%}
+{% else %}
+set protocols ospf area 0 network {{ intf.ipv4 | ipaddr('network/prefix') }}
+{% endif -%}
+{% endfor -%}

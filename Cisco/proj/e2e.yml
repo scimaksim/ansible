@@ -1,0 +1,35 @@
+---
+  - name: verify connectivity end-to-end
+    hosts: access-layer
+    vars_files:
+      - vars/ping-srcdst.yml
+
+    tasks:
+      - name: "run ping commands on VyOS access layer devices {{ inventory_hostname }}"
+        # this runs a ping command across the link
+        vyos_command:
+          commands:
+            - ping {{ item.dst }} interface {{ item.src }} count {{ pingcount }}
+        register: ping_result
+        loop: "{{ ping_data[inventory_hostname] }}"
+        when: ansible_network_os == 'vyos'
+
+      - name: looped assertion of ping results from VyOS access layer device
+        assert:
+          that: "', 0% packet loss' in item.stdout[0]"
+        loop: "{{ ping_result.results }}"
+        when: ansible_network_os == 'vyos'
+
+      - name: run ping commands on IOS access layer device {{ inventory_hostname }}
+        ios_command:
+          commands:
+            - ping {{ item.dst }} source {{ item.src }} repeat {{ pingcount }}
+        register: ping_result
+        loop: "{{ ping_data[inventory_hostname] }}"
+        when: ansible_network_os == 'ios'
+
+      - name: looped assertion of ping results from IOS access layer device
+        assert:
+          that: "'Success rate is 100 percent' in item.stdout[0]"
+        loop: "{{ ping_result.results }}"
+        when: ansible_network_os == 'ios'

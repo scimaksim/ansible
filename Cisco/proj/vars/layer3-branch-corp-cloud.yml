@@ -1,0 +1,22 @@
+interface_data:
+  spine01:
+    - { name: lo, ipv4: 10.0.0.1/32 }
+    - { name: eth1, ipv4: 10.10.5.1/30, ipv6: "fdb5:4b4e:4574:c6bb:0:0:0:1/64" }
+    - { name: eth5, ipv4: 172.16.2.1/30, ipv6: "fd42:e5a1:ef5d:6030:0:0:0:1/64" }
+  leaf01:
+    - { name: lo, ipv4: 10.0.0.11/32 }
+    - { name: eth1, ipv4: 10.10.10.1/30, ipv6: "fdbc:bda:8486:7118:0:0:0:1/64" }
+    - { name: eth5, ipv4: 10.10.5.2/30, ipv6: "fdb5:4b4e:4574:c6bb:0:0:0:2/64" }
+  spine02:
+    - { name: lo, ipv4: 10.0.0.2/32 }
+    - { name: eth2, ipv4: 192.168.5.1/30, ipv6: "fdaa:d398:13a1:5a42:0:0:0:1/64" }
+    - { name: eth5, ipv4: 172.16.5.1/30, ipv6: "fdcd:b497:c72:de1c:0:0:0:1/64" }
+  leaf02:
+    - { name: lo, ipv4: 10.0.0.12/32 }
+    - { name: eth2, ipv4: 192.168.10.1/30, ipv6: "fdea:230f:c3cf:c287:0:0:0:1/64" }
+    - { name: eth6, ipv4: 192.168.5.2/30, ipv6: "fdaa:d398:13a1:5a42:0:0:0:2/64" }
+  cs01:
+    - { name: Loopback1, ipv4: 10.0.0.21/32 }
+    - { name: GigabitEthernet2, ipv4: 172.16.2.2/30, ipv6: "fd42:e5a1:ef5d:6030:0:0:0:2/64" }
+    - { name: GigabitEthernet3, ipv4: 172.16.5.2/30, ipv6: "fdcd:b497:c72:de1c:0:0:0:2/64" }
+    - { name: GigabitEthernet4, ipv4: 172.16.10.1/30, ipv6: "fdfb:ede0:bdf2:c094:0:0:0:1/64" }

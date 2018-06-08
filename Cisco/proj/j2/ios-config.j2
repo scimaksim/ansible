@@ -8,7 +8,7 @@ service timestamps debug datetime
 logging {{ syslog_ipv4 }}
 logging trap {{ ios_loglevel }}
 no ip access-list extended MGMT-ACCESS
-ip access-list extended MGMT-ACCESS
-  10 permit ip host {{ workstation_ipv4 }} any log
-  20 permit ip host {{ tower_ipv4 }} any log
+ip access-list standard MGMT-ACCESS
+  10 permit host {{ workstation_ipv4 }} log
+  20 permit host {{ tower_ipv4 }} log
 snmp-server community {{ ro_community }} RO MGMT-ACCESS
