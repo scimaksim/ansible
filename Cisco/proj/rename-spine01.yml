@@ -1,0 +1,14 @@
+---
+  - name: Lab 5, spine01 -> spineA1
+    hosts: spine01
+    vars:
+      new_hostname: spineA1
+
+    tasks:
+      - name: backup the config before applying the change
+        vyos_config:
+          backup: True
+
+      - name: change the hostname
+        vyos_config:
+          lines: set system host-name {{ new_hostname }}

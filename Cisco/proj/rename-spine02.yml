@@ -1,0 +1,14 @@
+---
+  - name: Lab 5, spine2 -> SpineB2
+    hosts: spine02
+    vars:
+      config_filepath: ./config
+
+    tasks:
+      - name: backup the config before applying the change
+        vyos_config:
+          backup: True
+
+      - name: change the hostname
+        vyos_config:
+          src: "{{ config_filepath }}/{{ inventory_hostname }}.cfg"

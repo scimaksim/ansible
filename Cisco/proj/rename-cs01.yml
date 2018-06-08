@@ -1,0 +1,8 @@
+---
+  - name: a play that uses a Jinja2 template and host vars to rename cs01
+    hosts: cs01
+
+    tasks:
+      - name: configure host
+        ios_config:
+          src: ios-cs-hostname.j2
