@@ -1,0 +1,48 @@
+---
+  - name: a play that upgrades a VyOS device
+    hosts: "{{ target | default('vyos') }}"
+    vars:
+      - sysimg_url: https://downloads.vyos.io/release/1.1.8/vyos-1.1.8-amd64.iso
+
+    tasks:
+      - name: abort unless target host has ansible_network_os == 'vyos'
+        assert:
+          that: "ansible_network_os == 'vyos'"
+
+      - name: get old system image information
+        vyos_command:
+          commands:
+            - show system image
+        register: old_system_image
+
+      - name: show old system image information
+        debug:
+          msg: "{{ old_system_image.stdout }}"
+
+      - name:
+        vyos_command:
+          commands:
+            - add system image {{ sysimg_url }}
+
+      - name: get new system image information
+        vyos_command:
+          commands:
+            - show system image
+        register: new_system_image
+
+      - name: show new system image information
+        debug:
+          msg: "{{ new_system_image.stdout }}"
+
+      - name: reboot the system
+        vyos_command:
+          commands:
+            - commands: reboot now
+        ignore_errors: yes
+        when: old_system_image.stdout != new_system_image.stdout
+
+      - name: wait for restart
+        wait_for_connection:
+          delay: 20
+          timeout: 120
+        when: old_system_image.stdout != new_system_image.stdout
