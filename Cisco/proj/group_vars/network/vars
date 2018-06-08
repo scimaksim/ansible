@@ -1,0 +1,10 @@
+ansible_connection: network_cli
+domain_name: lab.example.com
+nameservers:
+- 8.8.8.8
+- 8.8.4.4
+syslog_ipv4: 172.25.250.254
+ro_community: redhat
+snmp_clients:
+- 172.25.250.254
+- 172.25.250.9

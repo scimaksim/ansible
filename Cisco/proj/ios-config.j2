@@ -1,0 +1,13 @@
+hostname {{ inventory_hostname }}
+ip domain-name {{ domain_name }}
+{% for nameserver in nameservers %}
+ip name-server {{ nameserver }}
+{% endfor %}
+service timestamps log datetime
+service timestamps debug datetime
+logging {{ syslog_ipv4 }}
+logging trap {{ ios_loglevel }}
+no ip access-list extended MGMT-ACCESS
+ip access-list extended MGMT-ACCESS
+  10 permit ip host {{ workstation_ipv4 }} any log
+  20 permit ip host {{ tower_ipv4 }} any log 

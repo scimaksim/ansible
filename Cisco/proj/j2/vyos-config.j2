@@ -1,0 +1,10 @@
+set system host-name {{ inventory_hostname }}
+set system domain-name {{ domain_name }}
+{% for nameserver in nameservers %}
+set system name-server {{ nameserver }}
+{% endfor %}
+set system syslog host {{ syslog_ipv4 }} facility local7 level {{ vyos_loglevel }}
+set service snmp community {{ ro_community }} authorization ro
+{% for snmp_client in snmp_sources %}
+set service snmp community {{ ro_community }} client {{ snmp_client }}
+{% endfor %}
