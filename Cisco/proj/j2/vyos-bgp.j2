@@ -1,0 +1,7 @@
+set protocols bgp {{ bgp_data[inventory_hostname]['as'] }} parameters router-id {{ bgp_data[inventory_hostname]['router-id'] | ipaddr("address") }}
+{% for nei in bgp_data[inventory_hostname]['neighbors'] -%}
+set protocols bgp {{ bgp_data[inventory_hostname]['as'] }} neighbor {{ nei['ipv4'] | ipaddr('address') }} remote-as {{ nei['as'] }}
+{% endfor %}
+{% for net in bgp_data[inventory_hostname]['networks'] -%}
+set protocols bgp {{ bgp_data[inventory_hostname]['as'] }} network {{ net }}
+{% endfor -%}

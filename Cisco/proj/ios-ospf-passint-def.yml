@@ -1,0 +1,10 @@
+---
+  - name: set IOS device to OSPF passive interface default
+    hosts: cs01
+    vars:
+      - passint_template: j2/ios-ospf-passint-def.j2
+
+    tasks:
+      - name: configure OSPF 1 (process-id 1)
+        ios_config:
+          src: "{{ passing_template }}"

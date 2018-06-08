@@ -7,6 +7,11 @@ server[01:03]
 [spines]
 spine[01:02]
 
+[border-routers]
+spine01
+spine02
+cs01 
+
 [leafs]
 leaf[01:02]
 

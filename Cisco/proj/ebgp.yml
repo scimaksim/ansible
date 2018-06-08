@@ -1,0 +1,29 @@
+---
+  - name: play that configures eBGP on VyOS and IOS border routers
+    hosts: border-routers
+    vars:
+      - vyos_bgp_tpl: j2/vyos-bgp.j2
+    vars_files:
+      - vars/bgp-branch-corp-cloud.yml
+
+    tasks:
+      - name: configure eBGP networks on IOS device
+        ios_config:
+          lines:
+            - "network {{ item | ipaddr('network') }} mask {{ item | ipaddr('netmask') }}"
+          parents: "router bgp {{ bgp_data[inventory_hostname]['as'] }}"
+        loop: "{{ networks[inventory_hostname] }}"
+        when: ansible_network_os == 'ios'
+
+      - name: configure eBGP neighbors on IOS device
+        ios_config:
+          lines:
+            - "neighbor {{ item.ipv4 | ipaddr('address') }} remote-as {{ item.as }}"
+          parents: "router bgp {{ bgp_data[inventory_hostname]['as'] }}"
+        loop: "{{ neighbors[inventory_hostname] }}"
+        when: ansible_network_os == 'ios'
+
+      - name: "map bgp data to vyos device using {{ vyos_bgp_tpl }}"
+        vyos_config:
+          src: "{{ vyos_bgp_tpl }}"
+        when: ansible_network_os == 'vyos'
