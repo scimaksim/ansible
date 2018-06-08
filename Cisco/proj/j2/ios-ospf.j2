@@ -4,7 +4,6 @@ router ospf 1
 {% if intf.name.startswith('Loopback') %}
   router-id {{ intf.ipv4 | ipaddr('address') }}
 {% else %}
-  network {{ intf.ipv4 | ipaddr('network') }}  {{ intf.ipv4 | ipaddr('hostmask') }}
-area 0
+  network {{ intf.ipv4 | ipaddr('network') }}  {{ intf.ipv4 | ipaddr('hostmask') }} area 0
 {% endif -%}
 {% endfor -%}
