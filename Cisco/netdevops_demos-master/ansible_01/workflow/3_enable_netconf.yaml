@@ -1,0 +1,7 @@
+- name: Enable Model Driven Programmability (NETCONF) on IOS-XE
+  hosts: iosxe
+  connection: local
+  gather_facts: false
+
+  roles:
+    - iosxe_mdp

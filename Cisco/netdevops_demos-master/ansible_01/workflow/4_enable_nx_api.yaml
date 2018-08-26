@@ -1,0 +1,7 @@
+- name: Enable NX-API on NX-OS
+  hosts: nxos
+  connection: local
+  gather_facts: false
+
+  roles:
+    - nxos_nxapi

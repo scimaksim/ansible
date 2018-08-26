@@ -1,0 +1,12 @@
+- name: Configure Distribution Switches
+  hosts: distribution
+  connection: local
+  gather_facts: false
+
+  roles:
+    - nxos_vlans
+    - nxos_vpc
+    - nxos_vpc_trunks
+    - nxos_l3_interfaces
+    - nxos_hsrp
+    - nxos_ospf

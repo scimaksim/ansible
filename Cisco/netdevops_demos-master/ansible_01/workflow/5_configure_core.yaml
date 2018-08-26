@@ -1,0 +1,8 @@
+- name: Configure Network Core
+  hosts: core
+  connection: local
+  gather_facts: false
+
+  roles:
+    - netconf_l3_interfaces
+    - netconf_ospf

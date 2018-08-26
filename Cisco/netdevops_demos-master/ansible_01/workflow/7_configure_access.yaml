@@ -1,0 +1,9 @@
+- name: Configure Access Switches
+  hosts: access
+  connection: local
+  gather_facts: false
+
+  roles:
+    - nxos_vlans
+    - nxos_l3_interfaces
+    - nxos_po_trunks

@@ -1,0 +1,9 @@
+- name: Wait for all devices to be available
+  hosts: all
+  connection: local
+  gather_facts: false
+
+  tasks:
+    - wait_for:
+        port: 22
+        sleep: 10
