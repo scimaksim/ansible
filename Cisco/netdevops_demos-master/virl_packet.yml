@@ -1,0 +1,38 @@
+#cloud-config
+
+license_file: uaZ0vj5M.virl.info.pem
+
+license_pem: |
+   -----BEGIN RSA PRIVATE KEY-----
+   MIIEogIBAAKCAQEAxkS0pa7bAAK4WF2Am2iUDKQzlfGcojYNSetyJQanSNObYn0P
+   Ht3WgO/WnC+ykKNBuOn/lsiEEeNeBEddv/kT6Y2d/DdLQaW7jH0D8aIX+cQVoIRc
+   LCQ3k2A2gqoMG6Tsc1v4R++8U3HXx3q3AGuzwUiXEU2byRn5fWXwYQSNzff3bxqd
+   gKMbQSC7Uy5q5VkMyTzJlt0JkZG4jajZjp2TQEOVRcQuTIJDM+8OIH9YRQ2AHDP6
+   ZlC02c8V8zmTdy+N9Aqc2yWwWapzkP8L/alMCRgxk2Ul9RSNfsWOHtxGFom9lQCS
+   dgrodEJczmExQ+Xcdy85aMB8GTytjFfEaTko1QIDAQABAoIBAClOqyxRr8LizjFq
+   2Z6HPUEc/LpiqjWJeV9LNG7OYg/kNl1gnMPbiBM45MeJkHRd7xVtexiZEhr/+dh+
+   XePfKuzf2mhvxLgapWZxrV6sXL5mwfK9YM65hPKpevHiJ7+irriiEqo6IkxoTYJ7
+   6KCnz72XOBIczzYouTgNAvXTkw+0Gem33zNUfM3+M6U3kBAz8aH8cE3nu+i0pzoH
+   CgSZcf9rpMHBQL0ET9WcsyOugTcBwCO5Urvbqm9XkODaDfvr77xYcdZ1doqxLql+
+   bqMb8Iwu2lqldOyoPLmfONTIJZuDCAedp6XkezzsWwSPpUTlBsga+FdDHFkZ8PBA
+   sLLbO4ECgYEA2zuooCGQxBZATljTLelwv8ISsjjmbGl6/F7bAu0VuBEDcUmpCJGP
+   3MS4+eJIkmrymM28/E3g8psWUoF9UVERsyWFXtDz9k+evbZKV0vrLkbAqsW+e9WN
+   ENJge7qlBSiWab2w60Wn0/Ws+rTjNsrwukHWnaCMkY6LbdpRkBjOxkUCgYEA54T4
+   Z0f6htGTHHrz1O5VPHSB+0ZDhq/b8HFIiBQ/ZgYoxqApDMn2xX5jU0Ux/miK45qi
+   OChw1zmfORsPQ3/QUJ7k+MOF92IiVXiqR2VPgModgcAeJEpBYIPSogwAdiVSxNkx
+   JLQwz7JNFnxv9RAIOexqtjbB92/py5jx5mbECVECgYBlpmTKUqXf9X09lnvcVtfb
+   Ya3viuh0LfhDWevskGc4oFLbTU8d1PhCYchuvJfvo7z2UrakuatqcbRI7xdfA9rU
+   GLqdOv9THpm41vPjRCU4oL+mrudiXaL5wMHRvLnVCXusbbLBc9ucMNZSrFqJxlEV
+   238aOR3UQ6asecTFrmr5jQKBgGkcS5LIcQtodrvFbpJLqlMKKkEkg1/Q06/0HpP5
+   bVcqkLSs3jY6M1kyqnGRxsLUP8pZ2DBa2/A67vkEOgfRLYiMuzPdwSKxYRkg8V38
+   tv2nxYG08XpUZB4neyeq/0Kka1GHsfISBN8m+iytTj8aikGR/li/v4xROPoAdELA
+   gVwhAoGAQaNJ7xAX2UztYrobuiXCP2RqNkdVsxfBACpearGOHvqyBoE7iGNFS8Ok
+   qSQek2+Yd0GIxp5EmGsaaYMxBTvcqEPiV3PRSj3JUCC/X07RSXA0LvBC5q7tR0aj
+   sscBWrCxKAKKP6jYYl8CaavfnCPUKX3mKlfeahg88r2p4xgEFt0=
+   -----END RSA PRIVATE KEY--------
+
+uwm_password: password
+
+guest_password: guest
+
+virl_password: VIRL
