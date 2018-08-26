@@ -27,7 +27,7 @@
     provider:
       host: "{{inventory_hostname}}"
       transport: nxapi
-      timeout: 15
+      timeout: 45
     interface: "{{ item.interface_type }}{{ item.interface_id }}"
     mode: layer3
     description: "{{ item.description }}"

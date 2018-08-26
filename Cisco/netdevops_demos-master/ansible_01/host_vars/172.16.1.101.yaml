@@ -2,7 +2,7 @@ ospf_router_id: 192.168.0.1
 vpc_pkl_src: 172.16.1.101
 vpc_pkl_dest: 172.16.1.102
 l3_interfaces:
-  - interface_type: Loopback
+  - interface_type: loopback
     interface_id: 0
     description: Default Loopback
     ip_address: 192.168.0.1
