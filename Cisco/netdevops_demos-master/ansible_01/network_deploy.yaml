@@ -8,6 +8,13 @@
 # -
 ##############################################################
 ---
+- name: Source ansible_env
+  hosts: localhost
+  gather_facts: false
+  environment:
+    ANSIBLE_NET_USERNAME: cisco
+    ANSIBLE_NET_PASSWORD: cisco
+
 - name: Wait for all devices to be available
   hosts: all
   connection: local
