@@ -1,0 +1,7 @@
+- name: Back up NX-OS devices
+  hosts: nxos
+  connection: local
+  gather_facts: false
+
+  roles:
+    - net_backup

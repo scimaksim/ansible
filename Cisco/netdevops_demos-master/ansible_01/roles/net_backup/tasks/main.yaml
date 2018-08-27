@@ -1,0 +1,7 @@
+---
+- name: Back up NX-OS devices
+  nxos_config:
+    provider:
+      host: "{{inventory_hostname}}"
+      timeout: 45
+    backup: yes
