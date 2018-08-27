@@ -17,7 +17,7 @@
     provider:
       host: "{{inventory_hostname}}"
       transport: nxapi
-      timeout: 15
+      timeout: 45
     feature: "{{ item }}"
     state: enabled
 
@@ -27,7 +27,7 @@
     provider:
       host: "{{inventory_hostname}}"
       transport: nxapi
-      timeout: 15
+      timeout: 45
     domain: "{{ vpc.domain }}"
     pkl_src: "{{ vpc_pkl_src }}"
     pkl_dest: "{{ vpc_pkl_dest }}"
@@ -41,7 +41,7 @@
     provider:
       host: "{{inventory_hostname}}"
       transport: nxapi
-      timeout: 15
+      timeout: 45
     group: "{{ vpc.port_channel.id }}"
     members: "{{ vpc.port_channel.members }}"
     force: true
@@ -54,7 +54,7 @@
     provider:
       host: "{{inventory_hostname}}"
       transport: nxapi
-      timeout: 15
+      timeout: 45
     interface: "po{{ vpc.port_channel.id }}"
     mode: trunk
 
@@ -64,6 +64,6 @@
     provider:
       host: "{{inventory_hostname}}"
       transport: nxapi
-      timeout: 15
+      timeout: 45
     portchannel: "{{ vpc.port_channel.id }}"
     peer_link: true
