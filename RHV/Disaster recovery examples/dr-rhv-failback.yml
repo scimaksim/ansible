@@ -1,0 +1,12 @@
+---
+- name: Failback RHV
+  hosts: localhost
+  connection: local
+  vars:
+    dr_target_host: primary
+    dr_source_map: secondary
+  vars_files:
+    - disaster_recovery_vars.yml
+    - passwords.yml
+  roles:
+    - oVirt.disaster-recover

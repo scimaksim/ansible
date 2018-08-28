@@ -1,0 +1,12 @@
+---
+- name: Failover RHV
+  hosts: localhost
+  connection: local
+  vars:
+    dr_target_host: secondary
+    dr_source_map: primary
+  vars_files:
+    - disaster_recovery_vars.yml
+    - passwords.yml
+  roles:
+    - oVirt.disaster-recover

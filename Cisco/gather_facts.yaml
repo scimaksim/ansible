@@ -1,0 +1,61 @@
+- name: "Demonstrate connecting to switches"
+  hosts: cisco
+  connection: local
+  gather_facts: no
+
+  tasks:
+    ###
+    # Collect data
+    #
+    - name: Gather facts (eos)
+      eos_facts:
+      when: ansible_network_os == 'eos'
+
+    - name: Gather facts (ios)
+      ios_facts:
+      when: ansible_network_os == 'ios'
+
+    - name: Gather facts (vyos)
+      vyos_facts:
+      when: ansible_network_os == 'vyos'
+
+    ###
+    # Demonstrate variables
+    #
+    - name: Display some facts
+      debug:
+        msg: "The hostname is {{ ansible_net_hostname }} and the OS is {{ ansible_net_version }}"
+
+    - name: Facts from a specific host
+      debug:
+        var: hostvars['vyos01.example.net']
+
+    - name: Write facts to disk using a template
+      copy:
+        content: |
+          #jinja2: lstrip_blocks: True
+          EOS device info:
+            {% for host in groups['eos'] %}
+            Hostname: {{ hostvars[host].ansible_net_hostname }}
+            Version: {{ hostvars[host].ansible_net_version }}
+            Model: {{ hostvars[host].ansible_net_model }}
+            Serial: {{ hostvars[host].ansible_net_serialnum }}
+            {% endfor %}
+
+          IOS device info:
+            {% for host in groups['ios'] %}
+            Hostname: {{ hostvars[host].ansible_net_hostname }}
+            Version: {{ hostvars[host].ansible_net_version }}
+            Model: {{ hostvars[host].ansible_net_model }}
+            Serial: {{ hostvars[host].ansible_net_serialnum }}
+            {% endfor %}
+
+          VyOS device info:
+            {% for host in groups['vyos'] %}
+            Hostname: {{ hostvars[host].ansible_net_hostname }}
+            Version: {{ hostvars[host].ansible_net_version }}
+            Model: {{ hostvars[host].ansible_net_model }}
+            Serial: {{ hostvars[host].ansible_net_serialnum }}
+            {% endfor %}
+        dest: /tmp/switch-facts
+      run_once: yes

@@ -1,0 +1,13 @@
+routing_protocol: ospf
+routing_protocol_id: 1301
+uplink_supernet: 10.33.1.0/23
+rp_loopback_interface: loopback0
+nve_loopback: loopback1
+management_interface: mgmt0
+loopback0_supernet: 10.33.0.0/24
+loopback1_supernet: 10.33.2.0/24
+pim_ssm_range: 239.0.0.0/4
+rp_address: 10.33.0.1
+anycast_ip: 10.33.3.1
+cp_routing_protocol: ebgp
+anycast_gateway_mac: 0000.1122.3344

@@ -1,0 +1,23 @@
+global_enterprise:
+  name: 'Global Enterprise'
+  vrf_id: global_enterprise
+  l3_vni: 161301
+  l3_vni_vlan: 301
+  l2_segments:
+    - [vlan: 607, vni: 16607, name: testvlan1]
+    - [vlan: 608, vni: 16608, name: testvlan2]
+    - [vlan: 609, vni: 16609, name: testvlan3]
+    - [vlan: 620, vni: 16620, name: testvlan4]
+    - [vlan: 621, vni: 16621, name: testvlan5]
+
+global_dmz:
+  name: 'Global DMZ'
+  vrf_id: global_dmz
+  l3_vni: 161302
+  l3_vni_vlan: 302
+  l2_segments:
+    - [vlan: 100, vni: 16100, name: testvlan1]
+    - [vlan: 99, vni: 16099, name: testvlan2]
+    - [vlan: 101, vni: 16107, name: testvlan3]
+    - [vlan: 102, vni: 16102, name: testvlan4]
+    - [vlan: 103, vni: 16103, name: testvlan5]

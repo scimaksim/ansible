@@ -1,0 +1,12 @@
+---
+- name: Generate mapping
+  hosts: localhost
+  connection: local
+  vars:
+    site: https://example.engine.redhat.com/ovirt-engine/api
+    username: admin@internal
+    password: my_password
+    ca: /etc/pki/ovirt-engine/ca.pem
+    var_file: disaster_recovery_vars.yml
+  roles:
+    - oVirt.disaster-recover

@@ -1,0 +1,13 @@
+tacacs_servers: 10.0.100.10
+timezone: EST
+timezone_dst: EDT
+snmp_servers:
+  - [ip: 10.0.100.12, community: notpubic]
+logging_servers
+  - 10.0.100.13
+ntp_servers:
+  - [ip: 10.0.100.14]
+  - [ip: 10.0.100.15]
+local_users:
+  - [username: admin, password: secretpw, role: network-admin]
+  - [username:devlab, password: secretpw, role: network-operator]
