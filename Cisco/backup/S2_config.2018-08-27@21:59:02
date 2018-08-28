@@ -1,8 +1,9 @@
 Building configuration...
 
-Current configuration : 3717 bytes
+  
+Current configuration : 3666 bytes
 !
-! Last configuration change at 17:06:49 UTC Mon Dec 4 2017
+! Last configuration change at 00:32:27 UTC Tue Aug 28 2018
 !
 version 15.2
 service timestamps debug datetime msec
@@ -10,7 +11,7 @@ service timestamps log datetime msec
 no service password-encryption
 service compress-config
 !
-hostname S5
+hostname S2
 !
 boot-start-marker
 boot-end-marker
@@ -24,7 +25,6 @@ no aaa new-model
 !
 !
 !
-vtp mode transparent
 !
 !
 !
@@ -38,8 +38,6 @@ spanning-tree mode rapid-pvst
 spanning-tree extend system-id
 !
 vlan internal allocation policy ascending
-!
-vlan 10,20,30,40,50,100-101 
 !
 ! 
 !
@@ -119,7 +117,7 @@ interface GigabitEthernet3/3
  negotiation auto
 !
 interface Vlan1
- ip address 192.168.122.75 255.255.255.0
+ ip address 192.168.122.72 255.255.255.0
 !
 ip forward-protocol nd
 !

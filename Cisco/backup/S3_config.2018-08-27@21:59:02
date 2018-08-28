@@ -1,9 +1,9 @@
 Building configuration...
 
   
-Current configuration : 3718 bytes
+Current configuration : 3710 bytes
 !
-! Last configuration change at 15:29:55 UTC Tue Nov 21 2017
+! Last configuration change at 00:32:26 UTC Tue Aug 28 2018
 !
 version 15.2
 service timestamps debug datetime msec
@@ -18,7 +18,7 @@ boot-end-marker
 !
 !
 !
-username david privilege 15 password 0 ********
+username david privilege 15 password 0 cisco
 no aaa new-model
 !
 !
@@ -40,7 +40,7 @@ spanning-tree extend system-id
 !
 vlan internal allocation policy ascending
 !
-vlan 10,20,30,40,50,100-101 
+vlan 10,20,30,40,50 
 !
 ! 
 !

@@ -2,16 +2,9 @@
 - hosts: cisco
   connection: network_cli
   remote_user: david
-  become: yes
-  become_method: enable
 
   tasks:
-    - name: Backup configuration
+    - name: Backup Cisco configurations 
       ios_config:
         backup: yes
-      register: backup_path
     
-#    - name: Copy backups to my designated location
-#      copy:
-#        src: /var/lib/awx/projects/_41__cisco_backups/Cisco/backup/
-#        dest: /root/ansible/Cisco/backup/

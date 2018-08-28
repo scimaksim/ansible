@@ -1,0 +1,32 @@
+- name: "Demonstrate connecting to switches"
+  hosts: cisco
+  connection: network_cli
+  gather_facts: no
+
+  tasks:
+    ###
+    # Collect data
+    #
+    - name: Gather facts (ios)
+      ios_facts:
+      when: ansible_network_os == 'ios'
+
+    ###
+    # Demonstrate variables
+    #
+    - name: Display some facts
+      debug:
+        msg: "The hostname is {{ ansible_net_hostname }} and the OS is {{ ansible_net_version }}"
+
+    - name: Write facts to disk using a template
+      copy:
+        content: |
+          IOS device info:
+            {% for host in groups['cisco'] %}
+            Hostname: {{ hostvars[host].ansible_net_hostname }}
+            Version: {{ hostvars[host].ansible_net_version }}
+            Model: {{ hostvars[host].ansible_net_model }}
+            Serial: {{ hostvars[host].ansible_net_serialnum }}
+            {% endfor %}
+        dest: ./switch_facts/ios_facts.yaml
+      run_once: yes
