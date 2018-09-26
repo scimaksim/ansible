@@ -1,0 +1,24 @@
+[all_exos]
+EX01
+EX02
+
+[cisco_core]
+S1 ansible_host=192.168.122.71
+S2
+
+[cisco_access]
+S3
+S4
+S5
+
+[cisco:children]
+cisco_core
+cisco_access
+
+[cisco:vars]
+ansible_become = yes
+ansible_become_method = enable
+ansible_network_os = ios
+ansible_user = david
+ansible_connection =  network_cli
+ansible_ssh_pass = cisco

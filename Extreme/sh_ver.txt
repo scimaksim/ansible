@@ -1,0 +1,22 @@
+EX01 | SUCCESS => {
+    "changed": false, 
+    "stdout": [
+        "Switch      : PN:1N2039    SN:123456   Rev 01 BootROM: 1.2        IMG: 22.6.1.4  \nPSUCTRL-1   : PN:MEAD      SN:MD1      Rev 01 BootROM: 2.1       \nPSUCTRL-2   : PN:MEAD      SN:MD2      Rev 11 BootROM: 2.3       \nmouse-usb   : PN:MOUSE     SN:4321     Rev 11 BootROM: 4.3       \nfloppy-A    :\nPSU-1       : Internal PSU-2 PN:1N2039 SN:12345\nPSU-2       : Internal PSU-3 PN:1N2039 SN:12345\n\nImage   : ExtremeXOS version 22.6.1.4 by release-manager\n          on Thu Sep 6 12:29:04 EDT 2018\nBootROM : 1.2\nCertified Version : EXOS Linux  3.18.48, FIPS fips-ecp-2.0.16"
+    ], 
+    "stdout_lines": [
+        [
+            "Switch      : PN:1N2039    SN:123456   Rev 01 BootROM: 1.2        IMG: 22.6.1.4  ", 
+            "PSUCTRL-1   : PN:MEAD      SN:MD1      Rev 01 BootROM: 2.1       ", 
+            "PSUCTRL-2   : PN:MEAD      SN:MD2      Rev 11 BootROM: 2.3       ", 
+            "mouse-usb   : PN:MOUSE     SN:4321     Rev 11 BootROM: 4.3       ", 
+            "floppy-A    :", 
+            "PSU-1       : Internal PSU-2 PN:1N2039 SN:12345", 
+            "PSU-2       : Internal PSU-3 PN:1N2039 SN:12345", 
+            "", 
+            "Image   : ExtremeXOS version 22.6.1.4 by release-manager", 
+            "          on Thu Sep 6 12:29:04 EDT 2018", 
+            "BootROM : 1.2", 
+            "Certified Version : EXOS Linux  3.18.48, FIPS fips-ecp-2.0.16"
+        ]
+    ]
+}
