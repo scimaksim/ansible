@@ -36,7 +36,7 @@ configure vlan Default ipaddress 192.168.122.100 255.255.255.0
 #
 # Module aaa configuration.
 #
-create account admin maks encrypted "$5$socjNg$l4T0DVWLenjuTYK.rvFjU6/.NkZLM0JFubjD0aiKfk5" 
+create account admin maks encrypted "$5$Heogz1$9uO3Sb7JigBYoDfm2.FPJG3CeEdP5TMljySSdH/zdZA" 
 
 #
 # Module acl configuration.
@@ -149,7 +149,6 @@ configure ports 12 debounce time 0
 #
 # Module netTools configuration.
 #
-enable dhcp vlan Default
 
 #
 # Module ntp configuration.
@@ -186,7 +185,7 @@ enable dhcp vlan Default
 #
 # Module snmpMaster configuration.
 #
-configure snmpv3 engine-id 03:0c:2b:46:56:74:00
+configure snmpv3 engine-id 03:0c:1e:ff:31:d7:00
 enable snmp access
 enable snmp access snmp-v1v2c
 enable snmp access snmpv3

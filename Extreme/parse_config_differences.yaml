@@ -8,17 +8,17 @@
       intended_config: "{{ lookup('file', 'master_config.xsf')  }}"
     register: test_diff
 
-  - name: Take running config and set it to a variable called *before*
-    set_fact: before="{{ test_diff['diff']['before'].split('\n')  }}"
+#  - name: Take running config and set it to a variable called before
+#    set_fact: before="{{ test_diff['diff']['before'].split('\n')  }}"
  
-  - name: Take master config and set it to a variable called *after*
-    set_fact: after="{{ test_diff['diff']['after'].split('\n')  }}"
+#  - name: Take master config and set it to a variable called *after*
+#    set_fact: after="{{ test_diff['diff']['after'].split('\n')  }}"
 
-  - name: Create a diff of running config versus master config
-    set_fact: difference="{{ after | difference(before)  }}"
+#  - name: Create a diff of running config versus master config
+#    set_fact: difference="{{ after | difference(before)  }}"
 
-  - name: Sanitized output "Lines added to running config that are not present in master config"
-    debug:
-      var: difference
+#  - name: Sanitized output "Lines added to running config that are not present in master config"
+#    debug:
+#      var: difference
 
 
