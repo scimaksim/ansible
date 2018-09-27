@@ -4,8 +4,8 @@
   tasks:
   - name: Check the running-config against master-config
     exos_config:
-      diff_against: intended
-      intended_config: "{{ lookup('file', 'master_config.xsf')  }}"
+      diff_against: {{ diff_against  }}
+      intended_config: "{{ lookup('file', {{ master_file  }})  }}"
     register: test_diff
 
   - name: Take running config and set it to a variable called *before*
