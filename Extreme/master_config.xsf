@@ -1,0 +1,228 @@
+#
+# Module devmgr configuration.
+#
+configure snmp sysContact "support@extremenetworks.com, +1 888 257 3000"
+
+#
+# Module vpex configuration.
+#
+
+#
+# Module vlan configuration.
+#
+configure vlan Default ipaddress 192.168.122.100 255.255.255.0
+
+#
+# Module mcmgr configuration.
+#
+
+#
+# Module otm configuration.
+#
+
+#
+# Module fdb configuration.
+#
+
+#
+# Module rtmgr configuration.
+#
+
+#
+# Module policy configuration.
+#
+
+
+#
+# Module aaa configuration.
+#
+create account admin maks encrypted "$5$socjNg$l4T0DVWLenjuTYK.rvFjU6/.NkZLM0JFubjD0aiKfk5" 
+
+#
+# Module acl configuration.
+#
+
+
+
+
+#
+# Module bfd configuration.
+#
+
+#
+# Module bgp configuration.
+#
+
+#
+# Module cfgmgr configuration.
+#
+
+#
+# Module dosprotect configuration.
+#
+
+#
+# Module dot1ag configuration.
+#
+
+#
+# Module eaps configuration.
+#
+
+#
+# Module edp configuration.
+#
+
+#
+# Module elrp configuration.
+#
+
+#
+# Module ems configuration.
+#
+
+#
+# Module epm configuration.
+#
+
+#
+# Module erps configuration.
+#
+
+#
+# Module esrp configuration.
+#
+
+#
+# Module etmon configuration.
+#
+
+#
+# Module exsshd configuration.
+#
+enable ssh2
+
+#
+# Module hal configuration.
+#
+configure ports 1 debounce time 0
+configure ports 2 debounce time 0
+configure ports 3 debounce time 0
+configure ports 4 debounce time 0
+configure ports 5 debounce time 0
+configure ports 6 debounce time 0
+configure ports 7 debounce time 0
+configure ports 8 debounce time 0
+configure ports 9 debounce time 0
+configure ports 10 debounce time 0
+configure ports 11 debounce time 0
+configure ports 12 debounce time 0
+
+#
+# Module idMgr configuration.
+#
+
+#
+# Module ipSecurity configuration.
+#
+
+#
+# Module isis configuration.
+#
+
+#
+# Module lldp configuration.
+#
+
+#
+# Module mrp configuration.
+#
+
+#
+# Module msdp configuration.
+#
+
+#
+# Module netLogin configuration.
+#
+
+#
+# Module netTools configuration.
+#
+enable dhcp vlan Default
+
+#
+# Module ntp configuration.
+#
+
+#
+# Module ospf configuration.
+#
+
+#
+# Module ospfv3 configuration.
+#
+
+#
+# Module ovsdb configuration.
+#
+
+#
+# Module pim configuration.
+#
+
+#
+# Module poe configuration.
+#
+
+#
+# Module rip configuration.
+#
+
+#
+# Module ripng configuration.
+#
+
+#
+# Module snmpMaster configuration.
+#
+configure snmpv3 engine-id 03:0c:2b:46:56:74:00
+enable snmp access
+enable snmp access snmp-v1v2c
+enable snmp access snmpv3
+
+#
+# Module stp configuration.
+#
+
+#
+# Module techSupport configuration.
+#
+
+#
+# Module telnetd configuration.
+#
+
+#
+# Module tftpd configuration.
+#
+
+#
+# Module thttpd configuration.
+#
+
+#
+# Module twamp configuration.
+#
+
+#
+# Module vmt configuration.
+#
+
+#
+# Module vrrp configuration.
+#
+
+#
+# Module vsm configuration.
+#

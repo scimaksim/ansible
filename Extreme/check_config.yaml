@@ -1,0 +1,10 @@
+---
+- hosts: all_exos
+  
+  tasks:
+  - name: check the running-config against master-config
+    exos_config:
+      diff_against: intended
+      intended_config: "{{ lookup('file', 'master_config.xsf')  }}"
+    register: test_diff
+

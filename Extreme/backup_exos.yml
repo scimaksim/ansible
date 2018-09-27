@@ -1,0 +1,7 @@
+---
+- hosts: all_exos
+  
+  tasks:
+  - name: Create a backup of the running-configs
+    exos_config: 
+      backup: yes
