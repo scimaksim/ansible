@@ -1,11 +1,11 @@
-[idm]
-idm
+[all_exos]
+EX01
 
-[gns3-core]
+[cisco-core]
 S1 ansible_host=192.168.122.71
 S2
 
-[gns3-access]
+[cisco-access]
 S3
 S4
 S5
