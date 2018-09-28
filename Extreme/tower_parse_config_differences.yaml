@@ -1,0 +1,24 @@
+---
+- hosts: all_exos
+  
+  tasks:
+  - name: Check the running-config against master-config
+    exos_config:
+      diff_against: "{{ diff_against }}"
+      intended_config: "{{ lookup('file', {{ master_file }})  }}"
+    register: test_diff
+
+  - name: Take running config and set it to a variable called *before*
+    set_fact: before="{{ test_diff['diff']['before'].split('\n')  }}"
+ 
+  - name: Take master config and set it to a variable called *after*
+    set_fact: after="{{ test_diff['diff']['after'].split('\n')  }}"
+
+  - name: Create a diff of running config versus master config
+    set_fact: difference="{{ after | difference(before)  }}"
+
+  - name: Sanitized output "Lines added to running config that are not present in master config"
+    debug:
+      var: difference
+
+

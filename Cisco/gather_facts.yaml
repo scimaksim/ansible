@@ -1,10 +1,14 @@
 - name: "Demonstrate connecting to switches"
   hosts: cisco
 <<<<<<< HEAD
+<<<<<<< HEAD
   connection: local
 =======
   connection: network_cli
 >>>>>>> 3e700011b248a99139db7c592e493a887e5b5e42
+=======
+  connection: network_cli
+>>>>>>> af79f5628b3cf10d312c9a58a5ad17b3ae0740ed
   gather_facts: no
 
   tasks:
@@ -12,16 +16,20 @@
     # Collect data
     #
 <<<<<<< HEAD
+<<<<<<< HEAD
     - name: Gather facts (eos)
       eos_facts:
       when: ansible_network_os == 'eos'
 
 =======
 >>>>>>> 3e700011b248a99139db7c592e493a887e5b5e42
+=======
+>>>>>>> af79f5628b3cf10d312c9a58a5ad17b3ae0740ed
     - name: Gather facts (ios)
       ios_facts:
       when: ansible_network_os == 'ios'
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     - name: Gather facts (vyos)
       vyos_facts:
@@ -29,6 +37,8 @@
 
 =======
 >>>>>>> 3e700011b248a99139db7c592e493a887e5b5e42
+=======
+>>>>>>> af79f5628b3cf10d312c9a58a5ad17b3ae0740ed
     ###
     # Demonstrate variables
     #
@@ -36,6 +46,7 @@
       debug:
         msg: "The hostname is {{ ansible_net_hostname }} and the OS is {{ ansible_net_version }}"
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     - name: Facts from a specific host
       debug:
@@ -64,20 +75,29 @@
           VyOS device info:
             {% for host in groups['vyos'] %}
 =======
+=======
+>>>>>>> af79f5628b3cf10d312c9a58a5ad17b3ae0740ed
     - name: Write facts to disk using a template
       copy:
         content: |
           IOS device info:
             {% for host in groups['cisco'] %}
+<<<<<<< HEAD
 >>>>>>> 3e700011b248a99139db7c592e493a887e5b5e42
+=======
+>>>>>>> af79f5628b3cf10d312c9a58a5ad17b3ae0740ed
             Hostname: {{ hostvars[host].ansible_net_hostname }}
             Version: {{ hostvars[host].ansible_net_version }}
             Model: {{ hostvars[host].ansible_net_model }}
             Serial: {{ hostvars[host].ansible_net_serialnum }}
             {% endfor %}
 <<<<<<< HEAD
+<<<<<<< HEAD
         dest: /tmp/switch-facts
 =======
         dest: ./switch_facts/ios_facts.yaml
 >>>>>>> 3e700011b248a99139db7c592e493a887e5b5e42
+=======
+        dest: ./switch_facts/ios_facts.yaml
+>>>>>>> af79f5628b3cf10d312c9a58a5ad17b3ae0740ed
       run_once: yes
