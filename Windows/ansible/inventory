@@ -1,6 +1,7 @@
-[windows]
+[windows_servers]
 server2016.MLAB.COM
 
+[windows_desktops]
 
 [windows:vars]
 ansible_user=admin@MLAB.COM

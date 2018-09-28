@@ -1,10 +1,10 @@
 ---
-- name: App installation
-  hosts: windows
+- name: Manage applications on Windows machines
+  hosts: "{{ variable_host | default('windows_servers') }}"
   gather_facts: false
 
   tasks:
-    - name: Install application
+    - name: Install, remove, update, or reinstall application
       win_chocolatey:
         name: "{{ item }}"
         state: "{{ state }}"
