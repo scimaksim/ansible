@@ -1,24 +1,34 @@
 - name: "Demonstrate connecting to switches"
   hosts: cisco
+<<<<<<< HEAD
   connection: local
+=======
+  connection: network_cli
+>>>>>>> 3e700011b248a99139db7c592e493a887e5b5e42
   gather_facts: no
 
   tasks:
     ###
     # Collect data
     #
+<<<<<<< HEAD
     - name: Gather facts (eos)
       eos_facts:
       when: ansible_network_os == 'eos'
 
+=======
+>>>>>>> 3e700011b248a99139db7c592e493a887e5b5e42
     - name: Gather facts (ios)
       ios_facts:
       when: ansible_network_os == 'ios'
 
+<<<<<<< HEAD
     - name: Gather facts (vyos)
       vyos_facts:
       when: ansible_network_os == 'vyos'
 
+=======
+>>>>>>> 3e700011b248a99139db7c592e493a887e5b5e42
     ###
     # Demonstrate variables
     #
@@ -26,6 +36,7 @@
       debug:
         msg: "The hostname is {{ ansible_net_hostname }} and the OS is {{ ansible_net_version }}"
 
+<<<<<<< HEAD
     - name: Facts from a specific host
       debug:
         var: hostvars['vyos01.example.net']
@@ -52,10 +63,21 @@
 
           VyOS device info:
             {% for host in groups['vyos'] %}
+=======
+    - name: Write facts to disk using a template
+      copy:
+        content: |
+          IOS device info:
+            {% for host in groups['cisco'] %}
+>>>>>>> 3e700011b248a99139db7c592e493a887e5b5e42
             Hostname: {{ hostvars[host].ansible_net_hostname }}
             Version: {{ hostvars[host].ansible_net_version }}
             Model: {{ hostvars[host].ansible_net_model }}
             Serial: {{ hostvars[host].ansible_net_serialnum }}
             {% endfor %}
+<<<<<<< HEAD
         dest: /tmp/switch-facts
+=======
+        dest: ./switch_facts/ios_facts.yaml
+>>>>>>> 3e700011b248a99139db7c592e493a887e5b5e42
       run_once: yes
