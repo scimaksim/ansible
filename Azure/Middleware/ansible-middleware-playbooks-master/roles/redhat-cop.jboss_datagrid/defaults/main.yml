@@ -1,0 +1,26 @@
+---
+jboss_datagrid_artifact_source: https://access.redhat.com/jbossnetwork/restricted/softwareDownload.html?softwareId=42191
+# not used for now
+jboss_datagrid_patch_artifact_source: https://access.redhat.com/jbossnetwork/restricted/softwareDownload.html?softwareId=42191
+jboss_datagrid_artifact_name: jboss-datagrid-6.6.0-server.zip  #jboss-datagrid-7.0.0-server.zip
+
+jboss_datagrid_logging_timezone: Asia/Kolkatta
+
+jboss_datagrid_apply_patch: false
+
+jboss_datagrid_user: jboss-as
+
+jboss_datagrid_config: clustered.xml
+jboss_datagrid_mode: standalone
+jboss_datagrid_bind_web_address: "{{ansible_ssh_host}}"
+jboss_datagrid_bind_management_address: "{{ansible_ssh_host}}"
+#jgroups.bind_addr
+jboss_datagrid_jgroups_bind_address: "{{ansible_ssh_host}}"
+#jboss.default.jgroups.stack
+jboss_datagrid_jgroups_stack: udp
+
+# Set this value that will suffix jboss datagrid in the archive folder e.g. jboss-datagrid-server-6.6.0
+jboss_datagrid_base_version: 6.6.0
+
+# ussually this is set at the playbook level
+#transfer_method: # csp-to-host | copy-from-contoller

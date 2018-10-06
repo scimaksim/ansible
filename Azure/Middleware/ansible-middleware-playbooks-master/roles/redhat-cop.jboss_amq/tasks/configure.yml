@@ -1,0 +1,14 @@
+---
+- include: configure/create-broker.yml
+
+- include: configure/tls.yml
+  when: amq_broker_tls
+
+- include: configure/clustering.yml
+  when: amq_broker_clustered
+
+- include: configure/ports.yml
+
+- include: configure/users-roles.yml
+
+- include: configure/service.yml
