@@ -1,0 +1,89 @@
+## -*- shell-script -*- ######################################################
+##                                                                          ##
+##  JBoss Bootstrap Script Configuration                                    ##
+##                                                                          ##
+##############################################################################
+
+#
+# This file is optional; it may be removed if not needed.
+#
+
+#
+# Specify the maximum file descriptor limit, use "max" or "maximum" to use
+# the default, as queried by the system.
+#
+# Defaults to "maximum"
+#
+#MAX_FD="maximum"
+
+#
+# Specify the profiler configuration file to load.
+#
+# Default is to not load profiler configuration file.
+#
+#PROFILER=""
+
+#
+# Specify the location of the Java home directory.  If set then $JAVA will
+# be defined to $JAVA_HOME/bin/java, else $JAVA will be "java".
+#
+#JAVA_HOME="/opt/java/jdk"
+
+#
+# Specify the exact Java VM executable to use.
+#
+#JAVA=""
+
+if [ "x$JBOSS_MODULES_SYSTEM_PKGS" = "x" ]; then
+   JBOSS_MODULES_SYSTEM_PKGS="org.jboss.byteman"
+fi
+
+# Uncomment the following line to prevent manipulation of JVM options
+# by shell scripts.
+#
+#PRESERVE_JAVA_OPTS=true
+
+# Heap settings
+ 
+JVM_HEAP_SETTINGS="-server -Xms1503m -Xms1503m -XX:-UseCompressedOops"
+ 
+# Young generation options
+JVM_YOUNG_SIZE="-XX:NewSize=512m -XX:MaxNewSize=512m -XX:+UseParNewGC -XX:MaxTenuringThreshold=2 -XX:SurvivorRatio=3 -XX:+UnlockDiagnosticVMOptions -XX:ParGCCardsPerStrideChunk=1024"
+ 
+# Old generation  options
+JVM_OLD_SIZE="-XX:+UseConcMarkSweepGC -XX:+CMSParallelRemarkEnabled -XX:+ParallelRefProcEnabled -XX:+CMSClassUnloadingEnabled  -XX:CMSInitiatingOccupancyFraction=80 -XX:+UseCMSInitiatingOccupancyOnly"
+ 
+# Other options
+JVM_OTHER="-XX:+AlwaysPreTouch"
+
+# GC Options
+JVM_GC_OPTS="-XX:+PrintGCDetails -XX:+PrintGCTimeStamps -XX:+PrintGCDateStamps -XX:+PrintTenuringDistribution -XX:+PrintGCApplicationStoppedTime -XX:-OmitStackTraceInFastThrow"
+
+#
+# Specify options to pass to the Java VM.
+#
+if [ "x$JAVA_OPTS" = "x" ]; then
+   JAVA_OPTS="$JVM_HEAP_SETTINGS $JVM_YOUNG_SIZE  $JVM_OLD_SIZE $JVM_OTHER -Djava.net.preferIPv4Stack=true -Dorg.jboss.resolver.warning=true -Dsun.rmi.dgc.client.gcInterval=3600000 -Dsun.rmi.dgc.server.gcInterval=3600000"
+   JAVA_OPTS="$JAVA_OPTS -Djboss.modules.system.pkgs=$JBOSS_MODULES_SYSTEM_PKGS -Djava.awt.headless=true"
+   JAVA_OPTS="$JAVA_OPTS -Dsun.nio.ch.bugLevel=''"
+   JAVA_OPTS="$JAVA_OPTS -Djboss.bind.address={{jboss_datagrid_bind_web_address}}"
+   JAVA_OPTS="$JAVA_OPTS -Djboss.bind.address.management={{jboss_datagrid_bind_management_address}}"
+   JAVA_OPTS="$JAVA_OPTS -Duser.timezone={{jboss_datagrid_logging_timezone}}"
+   JAVA_OPTS="$JAVA_OPTS -Djgroups.bind_addr={{jboss_datagrid_jgroups_bind_address}}"
+   JAVA_OPTS="$JAVA_OPTS -Djboss.default.jgroups.stack={{jboss_datagrid_jgroups_stack}}"
+else
+   echo "JAVA_OPTS already set in environment; overriding default settings with values: $JAVA_OPTS"
+fi
+
+# Sample JPDA settings for remote socket debugging
+#JAVA_OPTS="$JAVA_OPTS -Xrunjdwp:transport=dt_socket,address=8787,server=y,suspend=n"
+
+# Sample JPDA settings for shared memory debugging
+#JAVA_OPTS="$JAVA_OPTS -Xrunjdwp:transport=dt_shmem,server=y,suspend=n,address=jboss"
+
+# Uncomment to not use JBoss Modules lockless mode
+#JAVA_OPTS="$JAVA_OPTS -Djboss.modules.lockless=false"
+
+# Uncomment to gather JBoss Modules metrics
+#JAVA_OPTS="$JAVA_OPTS -Djboss.modules.metrics=true"
+
