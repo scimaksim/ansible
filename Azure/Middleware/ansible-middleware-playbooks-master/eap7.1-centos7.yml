@@ -1,7 +1,6 @@
 ---
 
-- hosts: jboss_eap_centos_hosts
-  become_user: "{{ ansible_centos_user }}"
+- hosts: all
   become: true
   gather_facts: true
 

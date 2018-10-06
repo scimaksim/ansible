@@ -3,7 +3,9 @@
   hosts: localhost
   connection: local
   gather_facts: False
+  
   tasks:
+
   - name: Create resource group
     azure_rm_resourcegroup:
       name: "{{ resourcegroup_name }}"
@@ -53,7 +55,7 @@
       subnet: "{{ subnet_name }}"
       public_ip_name: "{{ publicaddress_name }}"
       security_group: "{{ securitygroup_name }}"
-      
+
   - name: Create VM
     azure_rm_virtualmachine:
       resource_group: "{{ resourcegroup_name }}"
