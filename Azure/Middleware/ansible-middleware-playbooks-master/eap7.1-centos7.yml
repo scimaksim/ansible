@@ -3,6 +3,8 @@
 - hosts: all
   become: true
   gather_facts: true
+  become_user: azureuser
+  ansible_ssh_user: azureuser
 
   vars:
     - name: "{{ rhn_username }}"
