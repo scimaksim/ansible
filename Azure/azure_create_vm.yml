@@ -11,7 +11,7 @@
       name: "{{ vm_name }}"
       vm_size: "{{ vm_size }}"
       admin_username: azureuser
-      ssh_password_enabled: false
+      ssh_password_enabled: true
       ssh_public_keys:
         - path: /home/azureuser/.ssh/authorized_keys
           key_data: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCnOtPFN0jYQn/gDB+eltRGMq+xV8r5jUBw144X/nsTA97eCL38C+65TzYL0nCzjkugxAULCbuQQEZMF9OgtXHFGZNZZI0976xfsm5gcvGjh8JHvRnZ5qpWwA7EndAn6ka49dXQ5F3c/Mja8PRpszFu0M/rzXPg/xOQRHK7eNQT3xSafVeK9EcFZPnwGUya53uQv78M+AUimwkfmWwwtspP0uSNXEd99xTC0fdH/Scrp6TlQDoUrKfP9NCZo7i+XTdvrk/p404qogtEZK/upet34HDTxlbeN4SvOFOVUEHGQB1ET5LY3xcpzXpFK47szjV9XD2H9VokTZNza4nlEIVX maks@rhel.mlab.com
