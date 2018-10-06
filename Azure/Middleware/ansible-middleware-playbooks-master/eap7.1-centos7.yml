@@ -1,6 +1,5 @@
 ---
-- hosts: myVM
-  connection: local
+- hosts: all
   become: true
   gather_facts: true
 
