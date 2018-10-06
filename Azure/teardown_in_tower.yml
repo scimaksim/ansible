@@ -35,6 +35,6 @@
   - name: Remove storage account, if it exists
     azure_rm_storageaccount:
       resource_group: myResourceGroup
-      name: myvm6048
+      name: "{{ storage_name }}"
       state: absent
 
