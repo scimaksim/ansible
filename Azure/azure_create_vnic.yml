@@ -1,0 +1,15 @@
+---
+- name: Create Azure VM
+  hosts: localhost
+  connection: local
+  gather_facts: False
+  tasks:
+
+  - name: Create virtual network inteface card
+    azure_rm_networkinterface:
+      resource_group: "{{ resourcegroup_name }}"
+      name: "{{ vnic_name }}"
+      virtual_network: "{{ virtualnetwork_name }}"
+      subnet: "{{ subnet_name }}"
+      public_ip_name: "{{ publicaddress_name }}"
+      security_group: "{{ securitygroup_name }}"

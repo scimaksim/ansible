@@ -1,0 +1,12 @@
+---
+- name: Create Azure VM
+  hosts: localhost
+  connection: local
+  gather_facts: False
+  tasks:
+
+  - name: Create virtual network
+    azure_rm_virtualnetwork:
+      resource_group: "{{ resourcegroup_name }}"
+      name: "{{ virtualnetwork_name }}"
+      address_prefixes: "{{ virtualnetwork_address_prefix }}"

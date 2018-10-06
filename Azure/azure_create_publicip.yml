@@ -1,0 +1,17 @@
+---
+- name: Create Azure VM
+  hosts: localhost
+  connection: local
+  gather_facts: False
+  tasks:
+
+  - name: Create public IP address
+    azure_rm_publicipaddress:
+      resource_group: "{{ resourcegroup_name }}"
+      allocation_method: Static
+      name: "{{ publicaddress_name }}"
+    register: output_ip_address
+
+  - name: Dump public IP for VM which will be created
+    debug:
+      msg: "The public IP is {{ output_ip_address.state.ip_address }}."

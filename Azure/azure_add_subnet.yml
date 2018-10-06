@@ -1,0 +1,13 @@
+---
+- name: Create Azure VM
+  hosts: localhost
+  connection: local
+  gather_facts: False
+  tasks:
+
+  - name: Add subnet
+    azure_rm_subnet:
+      resource_group: "{{ resourcegroup_name }}"
+      name: "{{ subnet_name }}"
+      address_prefix: "{{ subnet_prefix }}"
+      virtual_network: "{{ virtualnetwork_name }}"
