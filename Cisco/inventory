@@ -35,12 +35,3 @@ ansible_ssh_pass: !vault |
 [windows]
 server2016
 
-[rhel]
-node
-node2
-
-[idm]
-idm
-
-[satelite]
-satellite

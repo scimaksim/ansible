@@ -1,7 +1,6 @@
 ---
 - hosts: cisco
   connection: network_cli
-  remote_user: david
 
   tasks:
     - name: Backup Cisco configurations 

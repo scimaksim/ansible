@@ -4,8 +4,8 @@
     connection: network_cli
 
     vars:
-       desired_ios_version: "16.06.01"
-#       desired_ios_version: "15.2(4.0.55)E"
+#       desired_ios_version: "16.06.01"
+       desired_ios_version: "15.2(4.0.55)E"
 
     tasks:
 
