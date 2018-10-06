@@ -1,6 +1,6 @@
 ---
 # it may make sense to provide these at the host vars level
-ansible_centos_user: centos
+ansible_centos_user: azureuser
 
 ansible_rhel_user: cloud-user
 
