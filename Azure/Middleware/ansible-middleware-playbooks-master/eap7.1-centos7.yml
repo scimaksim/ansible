@@ -1,6 +1,5 @@
 ---
-
-- hosts: all
+- hosts: myVM
   become: true
   gather_facts: true
 
