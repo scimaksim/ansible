@@ -1,0 +1,18 @@
+---
+- include: install.yml
+  tags: [ "jboss:amq:install" ]
+  become: yes
+  become_user: "{{ amq_user }}"
+  become_method: sudo
+
+- include: patch.yml
+  tags: [ "jboss:amq:patch" ]
+  become: yes
+  become_user: "{{ amq_user }}"
+  become_method: sudo
+
+- include: configure.yml
+  tags: [ "jboss:amq:configure" ]
+  become: yes
+  become_user: "{{ amq_user }}"
+  become_method: sudo

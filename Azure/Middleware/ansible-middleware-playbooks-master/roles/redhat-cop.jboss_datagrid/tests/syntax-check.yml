@@ -1,0 +1,5 @@
+- hosts: jboss_datagrid_centos_hosts
+  gather_facts: false
+  roles:
+  - redhat-cop.jboss_eap
+  - jboss_datagrid

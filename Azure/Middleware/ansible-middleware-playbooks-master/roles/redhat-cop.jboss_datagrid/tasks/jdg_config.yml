@@ -1,0 +1,43 @@
+---
+# UDP packet size setting in bytes 
+- name: UDP recevie buffer size
+  sysctl:
+    name: net.core.rmem_max
+    value: 26214400
+  tags:
+    - jboss-datagrid
+
+- name: UDP send buffer for JGroups
+  sysctl:
+    name: net.core.wmem_max
+    value: 1048576
+  tags:
+    - jboss-datagrid
+
+# copy the clustered.xml configuration to {{jboss_datagrid_home}}/standalone/configuration
+- name: Copy clustered.xml configuration
+  template:
+    src: clustered.xml.j2
+    dest: "{{jboss_datagrid_home}}/standalone/configuration/clustered.xml"
+    owner: "{{ jboss_datagrid_user }}"
+    group: "{{ jboss_datagrid_group }}"
+    mode: 0755
+  tags:
+    - jboss-datagrid
+  notify:
+    - Restart jboss datagrid Service
+    - Verify jboss datagrid is running
+
+# copy the standalone.conf {{jboss_datagrid_home}}/bin
+- name: Copy standalone.conf
+  template:
+    src: standalone.conf.j2
+    dest: "{{jboss_datagrid_runtime_conf_file}}"
+    owner: "{{ jboss_datagrid_user }}"
+    group: "{{ jboss_datagrid_group }}"
+    mode: 0755
+  tags:
+    - jboss-datagrid
+  notify:
+    - Restart jboss datagrid Service
+    - Verify jboss datagrid is running
