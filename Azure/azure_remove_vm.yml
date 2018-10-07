@@ -1,0 +1,16 @@
+---
+- name: Delete Azure VM and all associated resources
+  hosts: localhost
+  connection: local
+  gather_facts: False
+  tasks:
+
+  - name: Remove VM and all resources
+    azure_rm_virtualmachine:
+      resource_group: myResourceGroup
+      name: myVM
+      state: absent
+      remove_on_absent:
+        - network_interfaces
+        - virtual_storage
+        - public_ips

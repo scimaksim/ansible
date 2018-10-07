@@ -1,0 +1,12 @@
+---
+- name: Delete Azure VM and all associated resources
+  hosts: localhost
+  connection: local
+  gather_facts: False
+  tasks:
+
+  - name: Delete security group
+    azure_rm_securitygroup:
+      resource_group: myResourceGroup
+      name: myNetworkSecurityGroup
+      state: absent

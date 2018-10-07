@@ -1,0 +1,12 @@
+---
+- name: Delete Azure VM and all associated resources
+  hosts: localhost
+  connection: local
+  gather_facts: False
+  tasks:
+
+  - name: Remove storage account, if it exists
+    azure_rm_storageaccount:
+      resource_group: myResourceGroup
+      name: "{{ storage_name }}"
+      state: absent
