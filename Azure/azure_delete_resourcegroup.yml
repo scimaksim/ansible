@@ -1,0 +1,11 @@
+---
+- name: Create Azure VM
+  hosts: localhost
+  connection: local
+  gather_facts: False
+  tasks:
+
+  - name: Create resource group
+    azure_rm_resourcegroup:
+      name: myResourceGroup
+      state: absent
