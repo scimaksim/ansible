@@ -1,0 +1,13 @@
+- hosts: localhost
+  vars:
+    repo_url: https://github.com/spring-guides/gs-spring-boot.git
+    workspace: ~/src/helloworld
+
+  tasks: 
+  - name: Git Clone sample app
+    git:
+      repo: "{{ repo_url }}"
+      dest: "{{ workspace }}"
+
+  - name: Build sample app
+    shell: mvn package chdir="{{ workspace }}/complete"

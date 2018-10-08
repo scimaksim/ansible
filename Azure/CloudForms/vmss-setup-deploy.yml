@@ -1,0 +1,34 @@
+- hosts: localhost
+  vars:
+    resource_group: myResourceGroup
+    scaleset_name: myVMSS
+    loadbalancer_name: myVMSSlb
+    admin_username: azureuser
+    admin_password: Redhat123
+  tasks:   
+  - include: get-host-tasks.yml
+
+- name: Install JRE on VMSS
+  hosts: scalesethosts
+  become: yes
+  vars:
+    workspace: ~/src/helloworld
+    admin_username: azureuser
+
+  tasks:
+  - name: Install JRE
+    apt:
+      name: default-jre
+      update_cache: yes
+
+  - name: Copy app to Azure VM
+    copy:
+      src: "{{ workspace }}/complete/target/gs-spring-boot-0.1.0.jar"
+      dest: "/home/{{ admin_username }}/helloworld.jar"
+      force: yes
+      mode: 0755
+
+  - name: Start the application
+    shell: java -jar "/home/{{ admin_username }}/helloworld.jar" >/dev/null 2>&1 &
+    async: 5000
+    poll: 0
