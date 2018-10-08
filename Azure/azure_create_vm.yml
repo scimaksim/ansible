@@ -11,7 +11,7 @@
       name: "{{ vm_name }}"
       vm_size: "{{ vm_size }}"
       admin_username: azureuser
-      admin_password: redhat
+      admin_password: Redhat123!
       ssh_password_enabled: true
       ssh_public_keys:
         - path: /home/azureuser/.ssh/authorized_keys
