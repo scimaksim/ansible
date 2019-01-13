@@ -1,6 +1,12 @@
 # windows-updates.yml
 - hosts: windows_domain_controllers,windows_workstations
 
+  vars:
+    ansible_connection: winrm
+    ansible_winrm_server_cert_validation: ignore
+    ansible_winrm_read_timeout_sec: 150
+    ansible_winrm_operation_timeout_sec: 120
+
   tasks:
     - name: Check for missing updates.
       win_updates: state=searched
