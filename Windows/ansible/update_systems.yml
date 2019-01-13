@@ -1,5 +1,5 @@
 # windows-updates.yml
-- hosts: windows_domain_controllers,windows_workstations
+- hosts: all
 
   vars:
     ansible_connection: winrm
