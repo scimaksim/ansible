@@ -6,6 +6,9 @@
       - name: Install software security updates
         win_updates:
           category_names: "{{category}}"
+          whitelist: "{{ whitelist }}"
+          blacklist: "{{ blacklist}}"
+
         register: update_result
 
       - name: Reboot Windows if needed
