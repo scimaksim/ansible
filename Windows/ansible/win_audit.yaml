@@ -1,4 +1,4 @@
-- name Windows audit playbook
+- name: Windows audit playbook
   hosts: windows
   
   tasks:
