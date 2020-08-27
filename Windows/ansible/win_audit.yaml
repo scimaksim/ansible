@@ -3,8 +3,8 @@
   
   tasks:
     - name: download audit script
-      win_get_url: https://github.com/alanrenouf/Windows-Workstation-and-Server-Audit/blob/master/Audit.ps1
-        url:
+      win_get_url: 
+        url: https://github.com/alanrenouf/Windows-Workstation-and-Server-Audit/blob/master/Audit.ps1
         dest: C:\Audit.ps1
     
     - name: running Windows audit script
