@@ -1,5 +1,5 @@
 - name: Windows audit playbook
-  hosts: windows
+  hosts: all
   
   tasks:
     - name: download audit script
