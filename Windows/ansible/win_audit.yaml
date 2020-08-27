@@ -1,0 +1,13 @@
+- name Windows audit playbook
+  hosts: windows
+  
+  tasks:
+    - name: download audit script
+      win_get_url: https://github.com/alanrenouf/Windows-Workstation-and-Server-Audit/blob/master/Audit.ps1
+        url:
+        dest: C:\Audit.ps1
+    
+    - name: running Windows audit script
+      win_shell: C:\Audit.ps1
+      args:
+        chdir: C:\
