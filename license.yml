@@ -1,0 +1,7 @@
+---
+- hosts: localhost
+
+  tasks:
+  - name: Set the license using a file
+    license:
+      manifest: "/tmp/manifest_tower-manifest-test_20201123T174410Z.zip"
