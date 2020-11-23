@@ -1,5 +1,7 @@
 ---
 - hosts: localhost
+  collections:
+    - awx.awx
 
   tasks:
   - name: Set the license using a file
