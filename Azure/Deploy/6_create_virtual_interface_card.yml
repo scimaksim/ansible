@@ -1,8 +1,12 @@
-- name: Create virtual network interface card
-  azure_rm_networkinterface:
-    resource_group: myResourceGroup
-    name: myNIC
-    virtual_network: myVnet
-    subnet: mySubnet
-    public_ip_name: myPublicIP
-    security_group: myNetworkSecurityGroup
+- name: Create Azure VM
+  hosts: localhost
+  connection: local
+  tasks:
+  - name: Create virtual network interface card
+    azure_rm_networkinterface:
+      resource_group: myResourceGroup
+      name: myNIC
+      virtual_network: myVnet
+      subnet: mySubnet
+      public_ip_name: myPublicIP
+      security_group: myNetworkSecurityGroup

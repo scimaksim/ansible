@@ -1,11 +1,15 @@
-- name: Create Network Security Group that allows SSH
-  azure_rm_securitygroup:
-    resource_group: myResourceGroup
-    name: myNetworkSecurityGroup
-    rules:
-      - name: SSH
-        protocol: Tcp
-        destination_port_range: 22
-        access: Allow
-        priority: 1001
-        direction: Inbound
+- name: Create Azure VM
+  hosts: localhost
+  connection: local
+  tasks:
+  - name: Create Network Security Group that allows SSH
+    azure_rm_securitygroup:
+      resource_group: myResourceGroup
+      name: myNetworkSecurityGroup
+      rules:
+        - name: SSH
+          protocol: Tcp
+          destination_port_range: 22
+          access: Allow
+          priority: 1001
+          direction: Inbound
