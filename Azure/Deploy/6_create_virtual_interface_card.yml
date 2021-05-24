@@ -4,9 +4,9 @@
   tasks:
   - name: Create virtual network interface card
     azure_rm_networkinterface:
-      resource_group: myResourceGroup
-      name: myNIC
-      virtual_network: myVnet
-      subnet: mySubnet
-      public_ip_name: myPublicIP
-      security_group: myNetworkSecurityGroup
+      resource_group: "{{ resource_group_name }}"
+      name: "{{ vnic_name }}"
+      virtual_network: "{{ virtual_network_name }}"
+      subnet: "{{ subnet_name }}"
+      public_ip_name: "{{ public_IP_name }}"
+      security_group: "{{ network_security_group_name }}"
