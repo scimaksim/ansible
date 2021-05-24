@@ -4,6 +4,6 @@
   tasks:
   - name: Create virtual network
     azure_rm_virtualnetwork:
-      resource_group: myResourceGroup
-      name: myVnet
-      address_prefixes: "10.0.0.0/16"
+      resource_group: "{{ resource_group_name }}"
+      name: "{{ virtual_network_name }}"
+      address_prefixes: "{{ virtual_network_prefixes }}"

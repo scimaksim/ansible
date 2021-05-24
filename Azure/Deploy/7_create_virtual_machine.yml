@@ -4,15 +4,15 @@
   tasks:
   - name: Create VM
     azure_rm_virtualmachine:
-      resource_group: myResourceGroup
-      name: myVM
-      vm_size: Standard_DS1_v2
+      resource_group: "{{ resource_group_name }}"
+      name: "{{ vm_name }}"
+      vm_size: "{{ vm_size }}"
       admin_username: azureuser
       ssh_password_enabled: false
       ssh_public_keys:
         - path: /home/azureuser/.ssh/authorized_keys
-          key_data: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCo0DoesGz9ROlv+XDbFxFMNGdS7YwLaO5yQCkxCyJ2Tbv/vNJm84/bWEA1blrWulT0j8fcck6+0bku3Xq2u0sgcHauXjs4OdH2XWxD6ehYcz3ogvzbpSQLtWL7tnokNAyciELSb2TtFLcE3lw9mOETgyaFdihFrIvFWrPQh9ZwEHB0CPkKzowgdm4vENruBGpbt3FYHF4g53YHngNB4oLynXT8hRpI5hJhpGb5pLa808/FEDrP6t8nuin2WkxhiEtbqveMtqoT6y1nGwwAYOH5FzrzJEJtrrYFSWVWaWPfevsPtPRiv/LaZ+7rdQEMs8SHzE0sYHSAoAU0hnXUqbCrJZFI+/O0lwWlYQ7YBBRs25x4dgKvAKHKHZOo+UFuLVVKw1wcx08lrg8eQxtdUgmFQpwi6vJ6koKsTp1YOgKXGVx1AOE1CCqlJbBjNvC1xh3P0uMBg6y/COcNhzx0VEIvyD6QGPZPYB2uxdzSCCoX/Nfrt8f3N+jnph3jbLe/nu8= root@tower.mlab.net
-      network_interfaces: myNIC
+          key_data: "{{ key_data }}"
+      network_interfaces: "{{ vnic_name }}"
       image:
         offer: CentOS
         publisher: OpenLogic

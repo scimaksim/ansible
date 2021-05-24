@@ -4,7 +4,7 @@
   tasks:
   - name: Add subnet
     azure_rm_subnet:
-      resource_group: myResourceGroup
-      name: mySubnet
-      address_prefix: "10.0.1.0/24"
-      virtual_network: myVnet
+      resource_group: "{{ resource_group_name }}"
+      name: "{{ subnet_name }}"
+      address_prefix: "{{ subnet_prefix }}"
+      virtual_network: "{{ virtual_network_name }}"
