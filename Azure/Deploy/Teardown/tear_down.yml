@@ -4,6 +4,7 @@
     - name: Deleting resource group - "{{ name }}"
       azure_rm_resourcegroup:
         name: "{{ name }}"
+        force_delete_nonempty: yes
         state: absent
       register: rg
     - debug:
