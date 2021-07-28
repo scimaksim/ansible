@@ -1,0 +1,33 @@
+---
+- name: Export event table in db2 for FileNet
+  hosts: ecmdbs10
+  become: false
+  gather_facts: true
+
+  tasks:
+    - name: run db script
+      script: db2_export.sh
+      register: output
+
+    - name: print script output
+      debug:
+        var: output.stdout_lines
+
+    - name: check file
+      stat:
+        path: /dbfs4/DBBackups/event_source_deposbak.ixf
+      register: register_name
+
+    - name: print file exists
+      debug:
+        msg: "The file or directory exists"
+      when: register_name.stat.exists
+
+    - name: Transfer file from database server to ecmarchp
+      synchronize:
+        src: /dbfs4/DBBackups/event_source_deposbak.ixf
+        dest: db2archp@ecmarchp:/dbfs1/DBBackups/event_source_deposbak.ixf
+        mode: push
+        set_remote_user: no
+        private_key: /u01/home/db2istg1/.ssh/id_rsa
+      delegate_to: ecmdbs10
