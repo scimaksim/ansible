@@ -1,33 +1,77 @@
 ---
 - name: Export event table in db2 for FileNet
-  hosts: ecmdbs10
+  hosts: server
   become: false
-  gather_facts: true
+  gather_facts: false
 
   tasks:
-    - name: run db script
-      script: db2_export.sh
-      register: output
+    - name: Connect to DB
+      shell: . /home/maksim/sqllib/db2profile; db2 connect to books
 
-    - name: print script output
-      debug:
-        var: output.stdout_lines
+    - name: Forces local or remote users or applications off the system to allow for maintenances.
+      shell: . /home/maksim/sqllib/db2profile; db2 force applications all
 
-    - name: check file
-      stat:
-        path: /dbfs4/DBBackups/event_source_deposbak.ixf
-      register: register_name
+    - name: Back up database
+      shell: . /home/maksim/sqllib/db2profile; db2 backup database books
+      register: backup_db
 
-    - name: print file exists
-      debug:
-        msg: "The file or directory exists"
-      when: register_name.stat.exists
+    - debug: msg="{{ backup_db.stdout }}"
+
+      
+    - set_fact:
+        backup_timestamp: "{{ backup_db.stdout | regex_findall('\\w+$') }}"
+
+    - debug:
+        var: backup_timestamp
+    # - name: print script output
+    #   debug:
+    #     var: output.stdout_lines
+
+    # - name: check file
+    #   stat:
+    #     path: /dbfs4/DBBackups/event_source_deposbak.ixf
+    #   register: register_name
+
+    # - name: print file exists
+    #   debug:
+    #     msg: "The file or directory exists"
+    #   when: register_name.stat.exists
+
+    - name: Find file with timestamp
+      find:
+        paths: /home/maksim
+        use_regex: no
+        file_type: file
+        patterns: "*.{{ backup_timestamp }}.*"
+        
+      register: files_matched
+
+    - debug:
+        var: files_matched
 
     - name: Transfer file from database server to ecmarchp
       synchronize:
-        src: /dbfs4/DBBackups/event_source_deposbak.ixf
-        dest: db2archp@ecmarchp:/dbfs1/DBBackups/event_source_deposbak.ixf
-        mode: push
+        src: "{{ item.path }}"
+        dest: /home/maksim/
+        mode: pull
         set_remote_user: no
-        private_key: /u01/home/db2istg1/.ssh/id_rsa
-      delegate_to: ecmdbs10
+      delegate_to: localhost
+      with_items: "{{ files_matched.files }}"
+
+    - name: Restore database
+      shell: . /home/maksim/sqllib/db2profile; db2 restore database books from /home/maksim replace existing
+      register: res_db
+      delegate_to: localhost
+      
+    - debug: msg="Here is the output for restore database :- {{ res_db.stdout_lines }}"
+    - fail:
+        msg: "Restore failed, Contact DBA"
+      when: res_db.stdout.find('DB20000I') == -1
+
+    # # Clean-up
+    # - name: "Restoring database"
+    #   shell: rm /home/maksim/*.001
+
+    # - name: "Restoring database"
+    #   shell: rm /home/maksim/*.001
+    #   delegate_to: localhost
